@@ -1,0 +1,244 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+body.home {
+
+	.home-slider {
+
+		.slide {
+			@include background-size( cover );
+			background-position: center center; background-repeat: no-repeat; width: 100%;
+		}
+
+		.slide-tagline {
+			@extend .container;
+
+			.big-tagline { position: absolute; top: 0; z-index: 150; }
+		}
+	}
+
+	main {
+		@extend .clearfix;
+
+		section {
+
+			@for $i from 0 to $homeSectionsLength {
+
+	            &.#{ nth( $homeSections, $i + 1 ) } {
+		            $homeSectionsIconPath: '/common/icon-' + nth( $homeSections, $i + 1 ) + '.png';
+
+	            	h2 {
+	            		@include patched-inline-image( $homeSectionsIconPath, no-repeat, right center, $xlTextContext );
+	            		padding-right: pem( remove-unit( image-width( $homeSectionsIconPath ) ) + 10, $xlTextContext );
+	            	}
+	            }
+	        }
+
+			&.advertisement {
+				display: block; position: relative;
+
+				.partners-slider {
+					margin: 0 auto; max-width: pem( 300 );
+
+					.partners-container {
+						width: 100%;
+
+						img { height: auto; max-width: 100%; width: inherit; }
+					}
+				}
+
+				.slideshow-pager { bottom: pem( 12 ); position: absolute; text-align: center; width: 100%; z-index: 1000; }
+			}
+
+			h2 { border-bottom: 2px solid $green; color: $mediumGrey; font: 300 pem( $xlTextContext )/1.273 $roboto; padding: 0 0 pem( 6, $xlTextContext ); }
+
+			ul {
+				list-style: none; margin-bottom: pem( 6 );
+
+				li {
+					border-bottom: 1px solid $borderGrey; padding: pem( 16 ) 0;
+
+					span.item-title { display: inline-block; font: 300 pem( $mTextContext )/1.334 $roboto; }
+
+					span.item-details {
+						@extend .clearfix;
+
+						> span {
+							float: right; font: 300 pem( $sTextContext )/1.667 $roboto; text-align: right; width: 38%;
+
+							&:first-child  { float: left; text-align: left; width: 60%; }
+
+							&.item-date { color: $dateGrey; font-weight: 500; }
+
+							&.item-category {
+								color: $green; font-weight: 400; text-transform: uppercase;
+
+								&:before { background-color: $green; content: ""; display: inline-block; height: pem( 6, $sTextContext ); margin: 0 pem( 4, $sTextContext ) pem( 2, $sTextContext ) 0; width: pem( 12, $sTextContext ); }
+							}
+						}
+					}
+
+					> a {
+						color: black; display: block;
+
+						&:hover, &:focus, &:active { color: $green; }
+					}
+				}
+			}
+
+			a.readmore {
+				font: 400 pem( $stTextContext )/1 $roboto;
+
+				.lt-ie9 & {
+
+					&:hover, &:focus, &:active {
+						color: black;
+
+						&:after { color: black; }
+					}
+
+					&:after { color: $green; margin-left: pem( 9, $stTextContext ); }
+				}
+
+				&:after {
+					@include transition-property( color, margin-left ); @include transition-duration( $transitionDuration );
+					content: "\e60d"; color: transparent; font-family: $icomoon; margin-left: 0; vertical-align: middle;
+				}
+
+				&:hover, &:focus, &:active {
+					color: $green;
+
+					&:after { color: $black; margin-left: pem( 9, $stTextContext ); }
+				}
+			}
+		}
+	}
+
+	.pager-container {
+		@extend .container;
+		position: relative;
+
+		.slideshow-pager { position: absolute; right: pem( $containerPaddingRL ); top: pem( -40 ); z-index: 1000; }
+	}
+
+	.slideshow-pager {
+
+		span {
+			cursor: pointer; display: inline-block; margin: 0 0 0 pem( 14 );
+
+			&:first-child { margin: 0; }
+
+			.borderradius & {
+				@include border-radius( 50% ); @include transition-property( background-color ); @include transition-duration( $transitionDuration );
+				background-color: white; border: 5px solid white; height: pem( 16 ); width: pem( 16 );
+
+				&.cycle-pager-active, &:hover, &:focus, &:active { background-color: $green; }
+			}
+		}
+	}
+}
+
+/* ==|== Message ======================================================== */
+
+.success-message {
+    border: 2px solid #fff;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+body.home {
+
+	.home-slider {
+
+		.slide { height: pem( 234 ); }
+	}
+
+	main {
+		padding-top: pem( 32 );
+
+		section { margin: 0 0 pem( 55 ); }
+	}
+}
+
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+
+@include respond-min( 48em ) {
+
+	body.home {
+
+		.home-slider {
+
+			.slide { height: pem( 300 ); }
+		}
+
+		main {
+			display: block; padding-top: pem( 40 );
+
+			section {
+				float: left; margin: 0 0 0 pem( 40 ); width: pem( 222 );
+
+				&:first-child { margin: 0; }
+
+				&.advertisement {
+					display: block; width: pem( $rightColWidthTablet );
+
+					.partners-container {
+						width: 100%;
+
+						img { height: auto; width: 100%; }
+					}
+				}
+
+				ul {
+
+					li { min-height: pem( 94 ); }
+				}
+			}
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+
+@include respond-min( 60em ) {
+
+	body.home {
+
+		main {
+
+			section {
+				width: pem( 280 );
+
+				&.advertisement { width: pem( $rightColWidthDesktop ); }
+			}
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.home-slider { display: none; }
+
+	body.home main {
+
+		section.advertisement, section a.readmore { display: none; }
+
+		section ul li span.item-details>span {
+			display: block; float: none;
+
+			&.item-category { margin-right: pem( 10, $sTextContext ); }
+		}
+	}
+}

@@ -1,0 +1,26 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.advert-container {
+	@include patched-inline-image( '/advertisement/bkg-advertisement01.jpg', no-repeat, left bottom, $browserContext, false );
+	background-color: #335fb9; color: white; margin: pem( 28 ) 0 0; padding: pem( 27 ) pem( 20 ) pem( 217 );
+
+	h1 { color: white; font: 600 pem( $xxlsTextContext )/1.116 $roboto; margin: 0 0 pem( 14, $xxlsTextContext ); text-transform: uppercase; }
+
+	p {
+		font-weight: 400; margin: 0 0 pem( 14, $stTextContext );
+
+		a.partners-link {
+			color: white; font-weight: 600;
+
+			&:after { content: "\e60d"; font: pem( $xsTextContext, $stTextContext ) $icomoon; margin-left: pem( 10, $xsTextContext ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+	.advert-container { display: none; }
+}

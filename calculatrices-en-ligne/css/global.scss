@@ -1,0 +1,16 @@
+/* ==|== import common ====================================================== */
+@import 'partials/common';
+/* ========================================================================== */
+/* ==|== import pages with specific styles ================================== */
+@import 'partials/pages/template-home',
+'partials/pages/template-contact',
+'partials/pages/template-suppliers-list',
+'partials/pages/template-suppliers-single',
+'partials/pages/template-news-events-list',
+'partials/pages/template-projects-list',
+'partials/pages/template-projects-single',
+'partials/pages/template-calculators',
+'partials/pages/template-publications-single',
+'partials/pages/template-videos',
+'partials/pages/page';
+/* ========================================================================== */

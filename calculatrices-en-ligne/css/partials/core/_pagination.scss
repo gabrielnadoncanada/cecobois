@@ -1,0 +1,43 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.pagination {
+	margin: 0 0 pem( 48 );
+
+	&.centered {
+		margin: pem( 45 ) 0 pem( 48 ); text-align: center;
+
+		ul { display: inline-block; }
+	}
+
+	ul {
+		@extend .clearfix;
+		list-style: none;
+
+		li {
+			background-color: $green; color: white; float: left; font: 300 pem( $mtTextContext )/1.875 $roboto; margin: 0 0 0 pem( 1, $mtTextContext ); min-width: pem( 30, $mtTextContext ); text-align: center;
+
+			&:first-child { margin: 0; }
+
+			a {
+				@include single-transition( background-color, $transitionDuration );
+				background-color: $headerLightGrey; color: $black; display: block;
+
+				&:hover, &:focus, &:active { background-color: $borderGrey; }
+
+				&.pagination-previous, &.pagination-next {
+
+					span:before { font-size: pem( $sTextContext, $mtTextContext ); }
+				}
+			}
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.pagination { display: none; }
+}

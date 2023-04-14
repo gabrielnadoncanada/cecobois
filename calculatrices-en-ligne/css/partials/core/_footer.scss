@@ -1,0 +1,451 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+footer.main {
+
+    .transparent-grey {
+        background-color: $black;
+
+        .rgba & { background-color: rgba($black, 0.9); }
+    }
+
+    .footer-top {
+        @extend .clearfix, .grey-container;
+
+        .project-directory {
+
+            .directory-header {
+                background-color: $green; color: white; display: inline-block; white-space: nowrap;
+
+                &:after { content: ""; display: inline-block; height: 100%; vertical-align: middle; }
+
+                .directory-header-content {
+                    display: inline-block; vertical-align: middle; white-space: normal;
+
+                    > :last-child { margin-bottom: 0 !important; }
+
+                    h2 {
+                        font: 300 pem( $xlTextContext )/1.273 $roboto; margin: 0 0 pem(20, $xlTextContext);
+
+                        a:after { content: "\e60d"; font-family: $icomoon; font-size: pem($sTextContext, $xlTextContext); margin-left: pem(12, $sTextContext); vertical-align: middle; }
+                    }
+
+                    p {
+                        font: 300 pem( $stTextContext )/1.385 $roboto; margin: 0 0 pem(8, $stTextContext);
+
+                        a {
+                            font-weight: bold;
+
+                            &:after { content: "\e60d"; font-family: $icomoon; font-size: pem($xsTextContext, $stTextContext); margin-left: pem(8, $sTextContext); vertical-align: middle; }
+                        }
+                    }
+
+                    a {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        ul {
+            @extend .clearfix;
+            list-style: none;
+
+            .home & {
+
+                li { border-left: none; }
+            }
+
+            li {
+
+                a {
+                    color: white; display: block; font: 300 pem( $ltTextContext ) /1 $roboto;
+
+                    &:hover, &:focus, &:active { color: $green; }
+                }
+            }
+        }
+    }
+
+    .home-footer {
+        background-color: white;
+
+        section {
+
+            &.footer-excellence {
+
+                h2 { border-bottom: 2px solid $green; font: 300 pem( $lTextContext )/1.556 $roboto; padding-bottom: pem(8, $lTextContext); }
+            }
+
+            &.footer-newsletter {
+
+                span.form-description {
+                    $newsletterIcon: '/common/icon-newsletter.png';
+                    @include patched-inline-image($newsletterIcon, no-repeat, left center, $stTextContext);
+                    display: inline-block; font: 400 pem( $stTextContext )/1.385 $roboto; margin: 0 0 pem(21, $stTextContext); min-height: pem(remove-unit(image-height($newsletterIcon)), $stTextContext); padding-left: pem(remove-unit( image-width( $newsletterIcon ) ) + 15, $stTextContext);
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+
+        .footer-bottom-content { @extend .container; }
+    }
+
+    .footer-nav-bottom {
+        @extend .container, .clearfix;
+        border-bottom: 1px solid #323232; padding-bottom: pem(22); padding-top: pem(24);
+
+        ul {
+            @extend .clearfix;
+
+            &.footer-menu {
+
+                li {
+
+                    a { font: 300 pem( $stTextContext )/1 $roboto; }
+                }
+            }
+
+            li {
+
+                &:first-child { margin: 0; }
+
+                a {
+                    color: white;
+
+                    &:hover, &:focus, &:active { color: $green; }
+                }
+            }
+        }
+    }
+
+    .credits {
+        @extend .container;
+        padding: pem(16) 0;
+
+        .chalifour {
+            color: $lightGrey; font-size: pem($xsTextContext); text-transform: uppercase;
+
+            span { font-size: 1px; }
+
+            a {
+                @include bounded-inline-image('/common/logo-chalifour.png', $xsTextContext);
+                display: inline-block; margin-left: pem(10, $xsTextContext);
+            }
+
+            .tag { float: left; margin-top: pem(3, $xsTextContext); }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+footer.main {
+
+    .footer-top {
+
+        .home & { padding-top: pem(52); }
+
+        .project-directory {
+
+            .directory-header {
+                max-width: none; padding: pem(43) pem(24); width: 100%; }
+        }
+
+        ul {
+
+            .home & {
+                margin-top: pem(13);
+
+                li {
+                    @for $i from 0 to $footerMenuIconsLength {
+                        border-left: none;
+
+                        &.#{ nth( $footerMenuIcons, $i + 1 )} {
+
+                            a {
+                                padding-right: pem($footerIconWidth, $ltTextContext); position: relative;
+
+                                &:before {
+                                    @include patched-inline-image('/common/img-menu-' + nth( $footerMenuIcons, $i + 1 ) + '.png', no-repeat, center center, $ltTextContext);
+                                    bottom: 0; content: ""; display: block; height: auto; position: absolute; right: 0; top: 0; width: pem($footerIconWidth, $ltTextContext);
+                                }
+
+                                &:hover, &:focus, &:active {
+
+                                    &:before { @include patched-inline-image('/common/img-menu-' + nth( $footerMenuIcons, $i + 1 ) + '-hover.png', no-repeat, center center, $ltTextContext); }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            li {
+                @for $i from 0 to $footerMenuIconsLength {
+
+                    &.#{ nth( $footerMenuIcons, $i + 1 )} {
+                        border-bottom: 1px solid $darkBorderGrey;
+
+                        a {
+                            padding-right: pem($footerIconWidth, $ltTextContext); position: relative;
+
+                            &:before {
+                                @include patched-inline-image('/common/img-menu-' + nth( $footerMenuIcons, $i + 1 ) + '.png', no-repeat, center center, $ltTextContext);
+                                bottom: 0; content: ""; display: block; position: absolute; right: 0; top: 0; width: pem($footerIconWidth, $ltTextContext);
+                            }
+
+                            &:hover, &:focus, &:active {
+
+                                &:before { @include patched-inline-image('/common/img-menu-' + nth( $footerMenuIcons, $i + 1 ) + '-hover.png', no-repeat, center center, $ltTextContext); }
+                            }
+                        }
+                    }
+                }
+
+                a { height: pem(92, $ltTextContext); line-height: pem(92, $ltTextContext); padding-left: pem(10, $ltTextContext); }
+            }
+        }
+    }
+
+    .home-footer {
+        background-color: white; padding-bottom: pem(38); padding-top: pem(52);
+
+        section {
+
+            &.footer-excellence {
+                margin: 0 0 pem(46);
+
+                h2 { margin: 0 0 pem(28, $lTextContext); }
+            }
+        }
+    }
+
+    .footer-nav-bottom {
+        text-align: center;
+
+        ul {
+
+            &.social-menu { display: inline-block; }
+
+            li {
+                float: left; margin: 0 0 0 pem(27);
+
+                &:first-child { margin: 0; }
+            }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min(48em) {
+
+    footer.main {
+
+        .footer-top {
+            $tileSize: 96;
+            padding-bottom: pem(84); padding-top: pem(76);
+
+            .home & { padding-top: pem(90); }
+
+            .project-directory {
+                @include patched-inline-image('/home/bkg-project-repertory-tablet.jpg', no-repeat, left top, $browserContext, false);
+                float: left; height: pem($tileSize * 4); width: pem($tileSize * 5);
+
+                .directory-header { height: pem($tileSize * 2); padding: 0 pem(20) 0 pem(20); width: pem($tileSize * 4); }
+            }
+
+            ul {
+
+                .home & {
+                    float: right; margin-top: 0; width: pem($rightColWidthTablet);
+
+                    li {
+                        float: none; text-align: left; width: 100%;
+
+                        @for $i from 0 to $footerMenuIconsLength {
+
+                            &.#{ nth( $footerMenuIcons, $i + 1 )} {
+                                border-bottom: 1px solid $darkBorderGrey; border-left: none;
+
+                                a { padding-left: 0; }
+                            }
+                        }
+
+                        &:first-child { border-top: 1px solid $darkBorderGrey; }
+
+                        a {
+                            height: pem($tileSize * 4 / 3 - 1, $ltTextContext); line-height: pem($tileSize * 4 / 3 - 1, $ltTextContext); padding-top: 0;
+
+                            &:before { width: auto; }
+                        }
+                    }
+                }
+
+                li {
+                    float: left; text-align: center; width: 25%;
+
+                    @for $i from 0 to $footerMenuIconsLength {
+                        $footerMenuImageHeight: remove-unit(image-height('/common/img-menu-' + nth( $footerMenuIcons, $i + 1 ) + '.png'));
+
+                        &.#{ nth( $footerMenuIcons, $i + 1 )} {
+                            border-bottom: none; border-left: 1px solid $darkBorderGrey;
+
+                            &:first-child { border-left: none; }
+
+                            a {
+                                background-position: center pem(( $footerMenuPaddingT - $footerMenuImageHeight ) / 2, $ltTextContext); padding-left: pem(10, $ltTextContext); padding-right: pem(10, $ltTextContext);
+
+                                &:before {
+                                    @include patched-inline-image('/common/img-menu-' + nth( $footerMenuIcons, $i + 1 ) + '-hover.png', no-repeat, center center, $ltTextContext);
+                                    bottom: auto; height: pem(127, $ltTextContext); top: 0; width: 100%;
+                                }
+
+                                &:hover, &:focus, &:active {
+                                    background-position: center pem(( $footerMenuPaddingT - $footerMenuImageHeight ) / 2, $ltTextContext);
+
+                                    &:before { @include patched-inline-image('/common/img-menu-' + nth( $footerMenuIcons, $i + 1 ) + '.png', no-repeat, center center, $ltTextContext); }
+                                }
+                            }
+                        }
+                    }
+
+                    a { height: pem(156, $ltTextContext); line-height: 1; padding-left: 0; padding-top: pem($footerMenuPaddingT, $ltTextContext); }
+                }
+            }
+        }
+
+        .home-footer {
+            @include patched-inline-image('/home/bkg-home-top-footer.jpg', repeat-x, center bottom, $browserContext, false);
+            padding-bottom: pem(80); padding-top: pem(63);
+
+            section {
+                float: left;
+
+                &.footer-excellence {
+                    @include patched-inline-image($footerExcellenceImage, no-repeat, pem(230) pem($footerExcellenceImageTop), $browserContext, false);
+                    min-height: pem(remove-unit( image-height( $footerExcellenceImage ) ) + $footerExcellenceImageTop); width: pem(484);
+
+                    h2 { margin: 0 0 pem(22, $lTextContext); }
+
+                    p {
+                        max-width: pem(240, $stTextContext);
+
+                        &.tagline { max-width: pem(240, $ltTextContext); }
+
+                        &.submit-project { font-weight: 500; margin: pem(40, $stTextContext) 0 pem(28, $stTextContext); }
+                    }
+                }
+
+                &.footer-newsletter { margin-left: pem(40); padding-top: pem(8); width: pem($rightColWidthTablet); }
+            }
+        }
+
+        .footer-bottom {
+
+            .footer-bottom-content {
+                height: pem(364);
+
+                .big-tagline {
+
+                    &:after { vertical-align: bottom; }
+
+                    p { margin-bottom: pem(88, $xxlTextContext); vertical-align: bottom; white-space: normal; }
+                }
+            }
+
+            .home & {
+                @include patched-inline-image('/home/bkg-home-bottom-footer.jpg', no-repeat, center center, $browserContext, false); @include background-size(cover);
+
+                .boxshadow & { @include box-shadow(black 0 15px 25px -15px inset); }
+            }
+
+            .footer-photo-credit { color: white; font: 300 pem( $xsTextContext )/1 $roboto; margin-top: pem(-30, $xsTextContext); position: absolute; padding: pem(10, $xsTextContext) pem(13, $xsTextContext); right: 0; }
+        }
+
+        .footer-nav-bottom {
+            text-align: left;
+
+            ul {
+                float: left;
+
+                &.social-menu { float: right; }
+
+                li { margin: 0 0 0 pem(20); }
+            }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min(60em) {
+
+    footer.main {
+
+        .footer-top {
+            $tileSize: 94;
+
+            .project-directory {
+                @include patched-inline-image('/home/bkg-project-repertory-desktop.jpg', no-repeat, left top, $browserContext, false);
+                height: pem($tileSize * 3); width: pem($tileSize * 6);
+
+                .directory-header { height: pem($tileSize * 2); width: pem($tileSize * 3); }
+            }
+
+            ul {
+
+                .home & {
+                    width: pem($rightColWidthDesktop);
+
+                    li {
+
+                        a { height: pem($tileSize - 2, $ltTextContext); line-height: pem($tileSize - 2, $ltTextContext); }
+                    }
+                }
+            }
+        }
+
+        .home-footer {
+
+            section {
+
+                &.footer-excellence {
+                    background-position: pem(370) pem($footerExcellenceImageTop); width: pem(600);
+
+                    p {
+                        max-width: pem(280, $stTextContext);
+
+                        &.tagline { max-width: pem(280, $ltTextContext); }
+                    }
+                }
+
+                &.footer-newsletter { width: pem($rightColWidthDesktop); }
+            }
+        }
+
+        .footer-nav-bottom {
+
+            ul {
+
+                li { float: left; margin: 0 0 0 pem(27); }
+            }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+    footer.main { display: none; }
+}

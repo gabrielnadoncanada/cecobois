@@ -1,0 +1,23 @@
+Nouvelle String :
+
+#: webroot/calculator/colonnes-imperial/variables.php:752
+Sur toute la hauteur
+Full lateral restrain
+
+
+
+Bois de sciage
+Lamco LFL
+Nordic Lam
+TimberStrand LSL
+Versa-Stud LVL
+SolidStart LSL
+SolidStart LVL
+
+
+
+É-P-S Select
+MSR 2250Fb-1.9E
+
+
+Analyses selon CSA O86-14 — Calcul aux états limites

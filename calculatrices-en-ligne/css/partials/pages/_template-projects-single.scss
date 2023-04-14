@@ -1,0 +1,341 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.project-intro {
+
+    .project-intro-bottom { position: relative; text-align: center; }
+}
+
+.project-slider {
+
+    .award-badge { position: absolute; z-index: 1000; }
+
+    ul, ol {
+
+        li {
+            margin: 0; padding: 0;
+
+            img { height: auto; max-width: 100%; }
+
+            &:before { display: none; }
+        }
+    }
+
+    ul.slides {
+
+        li {
+            margin: 0; padding: 0;
+            .credit { bottom: 0; margin-bottom: pem(20); margin-right: pem(20); position: absolute; right: 0; }
+        }
+    }
+
+    .flex-control-thumbs {
+        // @extend .clearfix;
+        display: inline-block; list-style: none; padding: 0; margin-bottom: pem(10); margin-top: pem(10);
+
+        li {
+            font-size: pem($browserContext); padding-right: pem(5);
+
+            // &:first-child { margin: 0 0 pem( 12 ) pem( 12 ); }
+            img {
+                background-color: $green; cursor: pointer; display: block; height: pem($squarePagerSize); opacity: 0.5; text-indent: pem(9999999999); transition: all 1s ease; width: pem($squarePagerSize);
+                &:hover, &:focus, &:active, &.flex-active { opacity: 1; }
+            }
+        }
+    }
+}
+
+.project-content { max-width: pem(620); }
+
+.project-awards {
+    $projectAwardImagePath: '/projects/icon-project-awards.png';
+    @include patched-inline-image($projectAwardImagePath, no-repeat, left 23%);
+    border-top: 1px solid $borderGrey; min-height: pem(remove-unit(image-height($projectAwardImagePath))); padding: pem(20) 0 pem(21) pem(85);
+
+    h2 { color: $taglineGreen; font: 600 pem( $mtTextContext )/1.188 $roboto; margin: 0; text-transform: uppercase; }
+
+    table {
+        width: 100%;
+
+        thead th {
+            font: 600 pem( $mTextContext )/1.25 $roboto; padding: pem(10, $mtTextContext) 0; text-align: right;
+
+            &:first-child { text-align: left; }
+        }
+
+        tbody tr {
+            border-bottom: 2px solid $darkBorderGrey;
+
+            &:first-child { border-top: 2px solid $darkBorderGrey; }
+        }
+
+        td {
+            width: 50%;
+
+            &.title { font: 400 pem( $mtTextContext )/1.25 $roboto; padding: pem(10, $mtTextContext) 0; vertical-align: middle; }
+
+            &.awards-sponsors { border-left: 1px solid $borderGrey; }
+
+            img { height: auto; max-width: 100%; }
+        }
+
+        ul {
+            list-style: none;
+
+            > li {
+                border-top: 1px solid $borderGrey; padding: pem(12, $mtTextContext);
+
+                &:first-child { border-top: 0; }
+
+                img { max-width: pem(110); }
+            }
+        }
+
+    }
+
+    ul {
+        list-style: none;
+
+        &.awards-sponsors {
+            @extend .clearfix;
+
+            > li { display: inline-block; margin-top: pem(15, $mtTextContext); padding-right: pem(10, $mtTextContext); vertical-align: bottom; width: 45%; }
+        }
+    }
+
+    > ul {
+
+        > li {
+            border-top: 1px solid $borderGrey; font: 400 pem( $mtTextContext )/1.25 $roboto; padding: pem(18, $mtTextContext) 0;
+
+            &:first-child { border-top: none; }
+
+            span.image { text-align: center; }
+            //span.title { width: pem(160, $mtTextContext); }
+            //span.name { padding-left: pem(10, $mtTextContext); }
+            img { max-width: pem(110, $mtTextContext); }
+
+            span.sponsors-title { display: block; font-size: pem($msTextContext, $mtTextContext); font-weight: 300; margin-top: pem(6, $msTextContext); }
+        }
+    }
+}
+
+.contact-info {
+    padding: pem(20) 0 0 0;
+    h2 { color: $taglineGreen; font: 600 pem( $stTextContext )/1.188 $roboto; margin: 0; text-transform: uppercase; }
+    p { font: 400 pem( $stTextContext )/1.25 $roboto; margin: pem(5, $stTextContext) 0 0; }
+}
+
+.project-study {
+    border-top: 1px solid $borderGrey; padding: pem(15) 0;
+    .img-case-study { height: pem(150); margin-bottom: pem(15); outline: 1px solid $lightBorderGrey; width: 100%; }
+}
+
+.project-details {
+    @extend .clearfix;
+
+    .project-details-column {
+
+        &.first {
+
+            .project-details-section {
+                border-color: $green;
+
+                > ul {
+
+                    > li {
+                        color: $green;
+
+                        > ul {
+
+                            > li { color: black; }
+                        }
+                    }
+                }
+            }
+        }
+
+        h2 { font: 600 pem( $msTextContext )/1.143 $roboto; margin: pem(13, $msTextContext) 0 pem(4, $msTextContext); }
+
+        ul { list-style: none; }
+
+        .project-details-section {
+            border-top: 2px solid $black;
+
+            > ul {
+                padding: pem(5) 0 0;
+
+                &:first-child {
+
+                    > li:first-child { border-top: none; }
+                }
+
+                > li {
+                    border-top: 1px solid $borderGrey; font: 600 pem( $sTextContext )/1.333 $roboto; padding: pem(7, $sTextContext) 0 pem(9, $sTextContext);
+
+                    > ul {
+                        margin: pem(2, $sTextContext) 0 0;
+
+                        > li {
+                            border-top: none; font: 300 pem( $sTextContext, $stTextContext )/1.333 $roboto;
+
+                            p {
+                                margin-top: pem(8, $sTextContext);
+                                &:first-child { margin-top: 0; }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.project-nav {
+    @extend .clearfix;
+    padding: pem(24) 0;
+
+    a {
+        color: black; font: 300 pem( $msTextContext )/1.429 $roboto;
+
+        &:hover, &:focus, &:active { color: $green; }
+
+        &:before, &:after { color: $green; display: inline-block; font: pem( $xsTextContext, $msTextContext )/1 $icomoon; vertical-align: middle; }
+
+        &:before { margin: 0 pem(12, $xsTextContext) 0 0; }
+
+        &:after { margin: 0 0 0 pem(12, $xsTextContext); }
+    }
+
+    a.project-previous {
+        float: left;
+
+        &:before { content: "\e603"; }
+    }
+
+    a.project-next {
+        float: right;
+
+        &:after { content: "\e60d"; }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.project-slider {
+
+    .award-badge { right: pem(-15); top: pem(-15); }
+
+    .flex-control-thumbs {
+        display: inline-block; margin-top: pem(23);
+
+        li { float: left; margin: 0 0 pem(12) 0; }
+    }
+}
+
+.project-content { padding: pem(30) 0 0; }
+
+.project-details {
+
+    .project-details-column {
+
+        .project-details-section { margin: 0 0 pem(18); }
+    }
+}
+
+.btn-demande { margin-bottom: pem(40); }
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min(48em) {
+
+    .project-intro {
+
+        .project-intro-top { padding-right: pem(120); }
+
+        .project-intro-bottom { padding-right: pem(32); }
+    }
+
+    .project-slider {
+
+        .award-badge { right: 0; top: pem(-75); }
+
+        .flex-control-thumbs {
+            bottom: pem($squarePagerSize); margin: 0; right: 0;
+
+            li {
+                float: left; margin: pem(12) 0 !important;
+            }
+        }
+    }
+
+    .project-content { padding: pem(41) 0; }
+
+    .project-details {
+        padding: pem(41) 0 0;
+
+        .project-details-column {
+            float: left; margin: 0 0 0 5%; width: 45%;
+
+            &.first { margin: 0; }
+        }
+    }
+    .btn-demande { margin-bottom: pem(30); }
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min(60em) {
+
+    .project-details {
+
+        .project-details-column {
+            margin: 0 0 pem(32) pem(36); width: pem(200);
+
+            &.first { margin: 0 0 pem(32) 0; }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+    .project-slider ol.flex-control-thumbs, .project-study, .project-nav { display: none; }
+
+    .project-slider {
+        .award-badge { height: auto; position: static; width: auto; }
+        .badge-text {
+            margin-top: 0; width: auto;
+
+            .award-title, .award-winning-title { text-align: left; }
+        }
+    }
+
+    .flex-viewport {
+
+        ul.slides {
+            @include transform(none !important);
+            overflow: visible !important; width: 100% !important;
+
+            li {
+                padding-bottom: pem(25, $stTextContext); width: 32% !important; margin: 0 1% 1% 0;
+
+                .credit { margin: 0; }
+
+                &.print-first { clear: both; }
+
+                &.clone { display: none !important; }
+
+            }
+        }
+    }
+
+    .project-awards { border-top: none; page-break-inside: avoid; padding: pem(20) 0; }
+
+}

@@ -1,0 +1,60 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.share-container {
+	@extend .clearfix;
+	border-bottom: 1px solid $borderGrey; border-top: 1px solid $borderGrey;
+
+	&.project-share { border-bottom: none; }
+
+	h2 { color: black; display: inline-block; font: 400 pem( $stTextContext )/1.538 $roboto; text-transform: uppercase; vertical-align: middle; }
+}
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.share-container {
+	margin: 0 0 pem( 48 ); padding: pem( 24 ) 0;
+
+	&.project-share { margin: 0; }
+
+	& > div {
+		margin: pem( 18 ) 0 0;
+
+		&:first-child { margin: 0; }
+
+		&.share-social {
+
+			.share-social-links { display: inline-block; margin: 0 0 0 pem( 12 ); vertical-align: middle; }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.share-container {
+		margin: 0 0 pem( 52 ); padding: 0;
+
+		> div {
+			height: pem( 75 ); margin: 0; white-space: nowrap;
+
+			&:after { content: ""; display: inline-block; height: 100%;  vertical-align: middle; }
+
+			&.share-social { float: left; }
+
+			&.share-print { float: right; }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.share-container { display: none; }
+}

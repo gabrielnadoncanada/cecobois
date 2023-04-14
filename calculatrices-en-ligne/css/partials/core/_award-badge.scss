@@ -1,0 +1,32 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.award-badge {
+	background-color: white; border-radius: 50%; height: pem( 90 ); width: pem( 90 );
+	.badge-text {
+		margin: pem( 16 ) auto; text-align: center; width: pem( 79 );
+		.award-winning-title { color: black; font: pem( $xsTextContext ) $roboto; margin: auto; margin-top: pem( 2 ); }
+		.award-title { color: $green; font: 600 pem( $sTextContext ) $roboto; margin: auto; text-transform: uppercase;  }
+	}
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.award-badge {
+		&.large { 
+			border-radius: 50%; height: pem( 120 ); width: pem( 120 );  
+			.badge-text {
+				margin: pem( 22 ) auto; width: pem( 108 );
+				.award-winning-title { font: pem( $msTextContext )/1.2 $roboto; }
+				.award-title { font: 600 pem( $mTextContext ) $roboto; }
+			}
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */

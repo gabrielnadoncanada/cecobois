@@ -1,0 +1,468 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+h1, h2, h3, h4, p, li, label, a, button, input, select, textarea, span, table, legend { -moz-osx-font-smoothing: grayscale; -webkit-font-smoothing: antialiased; }
+
+.text, .cke_show_borders {
+
+	h1 { @include heading1; }
+
+	h2 { @include heading2; }
+
+	h3 { @include heading3; }
+
+	h4 { @include heading4; }
+}
+
+.h1, .text .h1, .cke_show_borders .h1 { @include heading1; }
+
+.h2, .text .h2, .cke_show_borders .h2 { @include heading2; }
+
+.h3, .text .h3, .cke_show_borders .h3 { @include heading3; }
+
+.h4, .text .h4, .cke_show_borders .h4 { @include heading4; }
+
+.text, .cke_show_borders {
+
+	&.contact-content {
+
+		h3 { color: black; font: 400 pem( $stTextContext )/1.385 $roboto; margin: 0; }
+	}
+
+	p {
+		font: 300 pem( $stTextContext )/1.385 $roboto; margin: 0 0 pem( 21, $stTextContext );
+
+		&.large { font: 400 pem( $mTextContext )/1.4 $roboto; margin: 0 0 pem( 21, $mTextContext ); }
+
+		&.tagline { font: 300 pem( $ltTextContext )/1.421 $roboto; margin: 0 0 pem( 28, $ltTextContext ); }
+
+		&.mail-newspaper-link {
+			padding-left: pem( $checkboxRadioSize + $checkboxRadioMargin, $stTextContext ); margin: pem( 5, $stTextContext ) 0 pem( 10, $stTextContext );
+
+			a {
+				color: black; text-decoration: underline;
+
+				&:hover, &:focus, &:active { color: $green; }
+			}
+		}
+
+		&.extra-info { color: $green; font: italic 400 pem( $sTextContext )/1.417 $roboto; margin: 0 0 pem( 21, $sTextContext ); }
+
+		a {
+
+			&.btn { font-size: pem( $msTextContext, $stTextContext ); }
+		}
+	}
+
+	ul, ol {
+		margin: 0 0 pem( 21 );
+
+		li {
+			font: 300 pem( $stTextContext )/1.385 $roboto; margin: pem( 9, $stTextContext ) 0 0;
+
+			&:first-child { margin: 0; }
+
+			ul {
+				font-size: pem( $browserContext, $stTextContext ); margin-top: pem( 12 );
+
+				li { padding: 0 0 0 pem( 20, $stTextContext ); }
+			}
+
+			a {
+
+				&.btn { font-size: pem( $msTextContext, $stTextContext ); }
+			}
+		}
+	}
+
+	ul {
+		list-style: none;
+
+		&.calculator-list {
+			@extend .clearfix;
+
+			.lt-ie9 & {
+
+				li {
+					display: table;
+
+					a {
+						display: table-cell; vertical-align: middle; width: 100%;
+
+						span {
+							@include transform( none );
+							top: auto;
+						}
+					}
+				}
+			}
+
+			li {
+				display: block; font-size: pem( $browserContext ); margin: 0; padding: 0;
+
+				&:before { display: none; }
+
+				a {
+					@include transition-property( background-color, border-color, color ); @include transition-duration( $transitionDuration );
+					background-color: $headerLightGrey; border: 1px solid #e2e2e2; color: $black; display: block; position: relative;
+
+			        &:hover, &:focus, &:active { background-color: $taglineGreen; border-color: darken( $taglineGreen, 3% ); color: white; }
+
+			        span {
+				        @include transform( translateY( -50% ) );
+				        display: block; position: relative; top: 50%;
+			        }
+				}
+			}
+		}
+
+		li {
+			@extend .icon-round-arrow-right;
+			padding: 0 0 0 pem( 20, $stTextContext ); position: relative;
+
+			&:before {
+				color: $green; font-family: 'icomoon'; font-size: pem( $xsTextContext, $stTextContext ); left: 0; position: absolute; top: pem( 4, $stTextContext );
+
+				.lt-ie9 & { font-size: pem( $xsTextContext ); top: pem( 4 ); }
+			}
+		}
+	}
+
+	ol {
+		padding: 0 0 0 pem( 17 );
+
+		li { padding: 0 0 0 pem( 3, $stTextContext ); }
+	}
+
+    .wrapper-table {
+        overflow-x: auto;
+
+        .lt-ie9 & { overflow: hidden; }
+    }
+
+	table {
+		margin: 0 0 pem( 25 );
+
+		&.order-table {
+
+			thead {
+
+				th { background-color: $taglineGreen; border-color: $taglineGreen; color: white; }
+			}
+
+			tr {
+
+				td {
+					vertical-align: middle;
+
+					legend { font-weight: 600; }
+
+					ul {
+						font-size: 1em; margin: 0;
+
+						li { padding: 0; }
+					}
+				}
+			}
+		}
+
+		&.order-total {
+			width: 100%;
+
+			tr {
+
+				&.subtotal {
+
+
+
+					th, td { border-bottom: 2px solid darken( $borderGrey, 50% ); width: 50%; }
+				}
+
+				&.total {
+
+					th, td { border-top: 2px solid darken( $borderGrey, 50% ); font: 600 pem( $mtTextContext )/1.385 $roboto; padding: pem( 10, $mtTextContext ); }
+
+					th { background-color: $taglineGreen; border-bottom-color: $taglineGreen; border-left-color: $taglineGreen; border-right-color: $taglineGreen; color: white; }
+
+				}
+			}
+		}
+
+		&.schedule-table {
+
+			caption { font: 400 pem( $mtTextContext )/1.188 $roboto; padding: pem( 14, $mtTextContext ); }
+
+			tr {
+				border-bottom: 1px solid $borderGrey;
+
+				th, td { border: none; }
+
+				th { font: 300 pem( $xlsTextContext )/1 $roboto; padding: pem( 16, $xlsTextContext ) pem( 10, $xlsTextContext ) pem( 16, $xlsTextContext ) 0; }
+
+				td { padding: pem( 16, $stTextContext ) pem( 36, $stTextContext ) pem( 20, $stTextContext ) pem( 10, $stTextContext ); }
+			}
+		}
+
+		caption { background-color: $taglineGreen; color: white; font: 400 pem( $mTextContext )/1.286 $roboto; margin: 0; padding: pem( 10, $mTextContext ); text-align: left; }
+
+		tr {
+
+			th, td {
+				border: 1px solid $lightBorderGrey; text-align: left;
+			}
+
+			th { color: $black; font: 400 pem( $msTextContext )/1 $roboto; padding: pem( 10, $msTextContext ); }
+
+			td {
+				font: 300 pem( $stTextContext )/1.385 $roboto; padding: pem( 10, $stTextContext );
+
+				&.error { color:$red; }
+
+				ul, ol { font-size: pem( $browserContext, $stTextContext ); }
+
+				p { font-size: pem( $stTextContext, $stTextContext ); margin: pem( 4, $stTextContext ) 0 0; }
+
+				input[type="text"], input[type="tel"], input[type="email"], input[type="number"], input[type="password"], textarea, select { font-size: pem( $stTextContext, $stTextContext ); }
+			}
+		}
+	}
+
+	.schedule-container {
+
+		p { color: $green; font: italic 400 pem( $sTextContext )/1.417 $roboto; }
+	}
+
+
+	.bio-container {
+		@extend .clearfix;
+		border-bottom: 1px solid $borderGrey; border-top: 1px solid $borderGrey; padding: pem( 18 ) 0;
+
+		.bio-author {
+
+			h1 {
+				color: $green; display: inline-block; font: 300 pem( $xlTextContext )/1 $roboto; margin: 0 0 pem( 5, $xlTextContext ); -webkit-font-smoothing: antialiased;
+
+				span.bio-title { color: $black; display: block; font: 300 pem( $msTextContext, $xlTextContext )/1.643 $roboto; margin: pem( 3, $msTextContext ) 0 0; }
+			}
+
+			a.bio-email {
+				$emailIconPath: '/common/icon-email.png';
+				@include patched-inline-image( $emailIconPath, no-repeat, left center, $stTextContext );
+				color: black; display: block; font: 400 pem( $stTextContext )/1 $roboto; min-height: pem( remove-unit( image-height( $emailIconPath ) ), $stTextContext ); padding-left: pem( remove-unit( image-width( $emailIconPath ) ) + 10, $stTextContext );
+
+				&:hover, &:focus, &:active { color: $green; }
+			}
+		}
+
+		.bio-content {
+
+			p {
+				margin: pem( 21, $stTextContext ) 0 0;
+
+				&:first-child { margin: 0; }
+			}
+		}
+
+		.bio-image {
+			margin-top: pem( 3 );
+
+			img { height: auto; max-width: 100%; width: inherit; }
+		}
+	}
+
+	.bio-container + .bio-container { border-top: none; }
+
+	.video-item {
+		@extend .clearfix;
+
+		&:first-child { margin: 0; }
+
+		.video-info { @extend .text; }
+
+		.video-frame {
+
+			.embed-container {
+				height: 0; height: auto; max-width: 100%; overflow: hidden; padding-bottom: 56.25%; position: relative;
+
+				iframe, object, embed { height: 100%; left: 0; position: absolute; top: 0; width: 100%; }
+			}
+		}
+	}
+
+	img { height: auto; max-width: 100%; }
+}
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.text, .cke_show_borders {
+
+	ul {
+
+		&.calculator-list {
+			margin: 0 0 pem( 40 );
+
+			li {
+				margin: pem( 20 ) 0 0; width: 100%;
+
+				&:first-child { margin: 0; }
+
+				a {
+					font: 300 pem( $mTextContext )/1.333 $roboto; height: pem( 88, $mTextContext ); padding: 0 pem( 28, $mTextContext );
+
+					@for $i from 0 to $calculatorIconsLength {
+
+			            &.#{ nth( $calculatorIcons, $i + 1 ) } {
+				            @include patched-inline-image( '/calculators/icon-' + nth( $calculatorIcons, $i + 1 ) + '.png', no-repeat, left center, $mTextContext );
+				            padding: 0 0 0 pem( $calculatorIconsPaddingL, $mTextContext );
+			            }
+			        }
+				}
+			}
+		}
+	}
+
+	.bio-container {
+
+		.bio-author { margin-bottom: pem( 10 ); }
+
+		.bio-image { float: left; padding-right: pem( 20 ); width: pem( $bioImageWidth + $bioImageMargin ); }
+	}
+
+	.video-item { margin: pem( 30 ) 0 0; }
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.text, .cke_show_borders {
+
+		ul {
+
+			&.calculator-list {
+
+				li {
+					float: left; margin: 2% 0 0 2%; width: 32%;
+
+					&:first-child { margin: 2% 0 0 2%; }
+
+					&:nth-child( 3n + 1 ) { margin: 2% 0 0 0; }
+
+					&:nth-child( -n + 3 ) { margin-top: 0; }
+				}
+			}
+		}
+
+		.bio-container {
+			padding: pem( 18 ) 0;
+
+			.bio-author { float: right; margin-bottom: pem( 19 ); margin-left: pem( -$bioImageTabletWidth + -$bioImageMargin ); padding-left: pem( $bioImageTabletWidth + $bioImageMargin ); width: 100%; }
+
+			.bio-content { padding-left: pem( $bioImageTabletWidth + $bioImageMargin ); }
+
+			.bio-image { float: left; width: pem( $bioImageTabletWidth + $bioImageMargin ); }
+
+		}
+
+		.video-item {
+			margin: pem( 67 ) 0 0;
+
+			.video-info { float: left; width: pem( 300 ); }
+
+			.video-frame { float: right; width: pem( 375 ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min( 60em ) {
+
+	.text, .cke_show_borders {
+
+		ul {
+
+			&.calculator-list {
+
+				li {
+
+					a {
+						font: 300 pem( $lsTextContext )/1.295 $roboto; height: pem( 88, $lsTextContext ); padding: 0 pem( 28, $lsTextContext );
+
+						@for $i from 0 to $calculatorIconsLength {
+
+				            &.#{ nth( $calculatorIcons, $i + 1 ) } {
+					            @include patched-inline-image( '/calculators/icon-' + nth( $calculatorIcons, $i + 1 ) + '.png', no-repeat, left center, $lsTextContext );
+					            padding: 0 0 0 pem( $calculatorIconsPaddingL, $lsTextContext );
+				            }
+				        }
+					}
+				}
+			}
+		}
+
+		.bio-container {
+
+			.bio-author { margin-left: pem( -$bioImageWidth + -$bioImageMargin ); padding-left: pem( $bioImageWidth + $bioImageMargin ); }
+
+			.bio-content { padding-left: pem( $bioImageWidth + $bioImageMargin ); }
+
+			.bio-image { width: pem( $bioImageWidth + $bioImageMargin ); }
+
+		}
+
+		.video-item {
+
+			.video-frame { width: pem( 540 ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.text {
+
+		h1, h2, h3, h4, p {
+
+			a { text-decoration: none; }
+
+			&.cecobois-logo { height: auto; margin: pem( 47 ) 0 pem( 18 ); text-indent: 0; width: auto; }
+		}
+
+		ul {
+
+			&.calculator-list {
+
+				li {
+					margin: pem( 6 ) 0 0;
+
+					a {
+						border: none; display: block; height: auto; padding: 0; white-space: normal;
+
+						@for $i from 0 to $calculatorIconsLength {
+
+				            &.#{ nth( $calculatorIcons, $i + 1 ) } { padding: 0; }
+				        }
+					}
+				}
+			}
+		}
+
+		table {
+
+			caption { padding: pem( 14, $mtTextContext ) 0; }
+		}
+
+		.video-item {
+
+			.video-frame { display: none; }
+		}
+	}
+}

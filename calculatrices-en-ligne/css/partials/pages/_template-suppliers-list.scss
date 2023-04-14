@@ -1,0 +1,243 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.suppliers-list {
+
+	h3 { border-bottom: 2px solid $green; color: $taglineGreen; font: 600 pem( $xlTextContext )/1 $roboto; margin: 0 0 pem( 3, $xlTextContext ); padding: 0 0 pem( 13, $xlTextContext ); }
+
+	ul {
+		list-style: none; margin: 0 0 pem( 50 );
+
+		li {
+			border-bottom: 1px solid $borderGrey;
+
+			&.featured { border: 1px solid $taglineGreen; }
+
+			> span { color: black; display: block; font: 300 pem( $mTextContext )/1.333 $roboto; padding: pem( 6, $mTextContext ) pem( 30, $mTextContext ) pem( 7, $mTextContext ) 0; }
+
+			a {
+				@extend .icon-round-arrow-right;
+				color: black; display: block; font: 600 pem( $mTextContext )/1.333 $roboto; padding: pem( 6, $mTextContext ) pem( 30, $mTextContext ) pem( 7, $mTextContext ) 0; position: relative;
+
+				&:before {
+					@include single-transition( color, $transitionDuration );
+					color: transparent; font-family: $icomoon; margin: pem( -$mTextContext / 2 * 1.333, $mTextContext ) 0 0 0; position: absolute; right: 0; top: 50%;
+				}
+
+				&:hover, &:focus, &:active {
+					color: $green;
+
+					&:before { color: $green; }
+				}
+
+				span.suppliers-location { color: black; display: block; font: 300 pem( $stTextContext, $mTextContext )/1 $roboto; margin: pem( 1, $stTextContext ) 0 0; }
+
+				span.suppliers-item-logo {
+
+					img { height: auto; max-width: 100%; }
+				}
+			}
+		}
+	}
+}
+
+.suppliers-search-heading {
+	margin: 0 0 pem( 7 );
+
+	span {
+		font: 300 pem( $lTextContext )/1.333 $roboto;
+
+		&:before { color: $green; font-family: $icomoon; margin: 0 pem( 5, $lTextContext ) 0 0; }
+	}
+}
+
+.suppliers-search-form {
+	@include transform( translate3d( 0, 0, 0 ) );
+
+	.suppliers-search-form-left {
+		float: left; margin-right: pem( -70 ); width: 100%;
+
+		&.narrow {
+			margin-right: pem( -110 );
+
+			.suppliers-search-form-left-content { margin-right: pem( 130 ); }
+		}
+
+		.suppliers-search-form-left-content { margin-right: pem( 70 ); }
+	}
+
+	.suppliers-search-form-right {
+		float: right; width: pem( 50 );
+
+		&.wide { width: pem( 110 ); }
+	}
+
+	input[type="text"] {
+		@include single-transition( border-color, $transitionDuration );
+		border: 2px solid white; font: 300 pem( $stTextContext ) $roboto; padding: pem( 9, $stTextContext ) pem( 46, $stTextContext ) pem( 9, $stTextContext ) pem( 12, $stTextContext ); width: 100%;
+
+		&:hover, &:focus, &:active { border-color: $green; }
+	}
+
+	span.btn-search {
+		@include transition-property( background-color, border-color ); @include transition-duration( $transitionDuration );
+		background-color: $green; border: 1px solid $green; color: white; cursor: pointer; display: inline-block; padding: pem( 7 ) pem( 13 ); position: relative;
+
+		.boxshadow & { @include box-shadow( $highlightGreen -4px 4px 4px -3px inset ); }
+
+		&:hover, &:focus, &:active { background-color: darken( $green, 10% ); border-color: darken( $green, 10% ); }
+
+		input[type="submit"] {
+			display: block; height: 100%; outline: none; position: absolute; text-indent: -99999999em; top: 0; width: 100%;
+
+			&:hover, &:focus, &:active {
+
+				& + span.icon-search { color: white; }
+			}
+
+			& + span.icon-search { color: white; font-size: pem( $xlsTextContext ); }
+		}
+	}
+}
+
+.suppliers-search {
+	background-color: $detailsBlack; color: $headerLightGrey; margin: 0 0 pem( 28 );
+
+	.suppliers-search-heading { margin: 0; padding: pem( 13 ) pem( 20 ) pem( 10 ); }
+
+	.suppliers-search-form { padding: 0 pem( 20 ) pem( 25 ); }
+
+	p { font: 300 pem( $stTextContext )/1.385 $roboto; margin: 0 0 pem( 21, $stTextContext ); }
+
+	div.search-type {
+		$contentArrowUpPath: '/common/icon-round-arrow-up.png'; $contentArrowDownPath: '/common/icon-round-arrow-down.png';
+		border-top: 1px solid black;
+
+		button.content-toggle, button.sub-accordion-toggle {
+			@include patched-inline-image( $contentArrowDownPath, no-repeat, right center, $mtTextContext ); @include single-transition( color, $transitionDuration );
+			display: block; font: 400 pem( $mtTextContext )/1 $roboto; outline: none; text-align: left; width: 100%;
+
+			&.open { @include patched-inline-image( $contentArrowUpPath, no-repeat, right center, $mtTextContext ); }
+		}
+
+		button.content-toggle {
+			border-top: 1px solid #494949; color: $green; padding: pem( 18, $mtTextContext ) pem( remove-unit( image-width( $contentArrowDownPath ) ), $mtTextContext ) pem( 18, $mtTextContext ) pem( 20, $mtTextContext );
+
+			&:hover, &:focus, &:active { color: white; }
+		}
+
+		button.sub-accordion-toggle {
+			background-color: black; color: white; padding: pem( 10, $mtTextContext ) pem( remove-unit( image-width( $contentArrowDownPath ) ), $mtTextContext ) pem( 10, $mtTextContext ) pem( 20, $mtTextContext );
+
+			&:hover, &:focus, &:active { color: $green; }
+		}
+
+		.sub-accordion {
+			height: 0; overflow: hidden;
+
+			&.content-open { height: auto; padding: pem( 10 ) 0 pem( 20 ); }
+		}
+
+		.search-content {
+			height: 0; overflow: hidden;
+
+			&.content-open { height: auto; }
+
+			ul { list-style: none; }
+
+			> ul {
+				padding: 0 0 pem( 25 );
+
+				&.accordion-container { padding: 0; }
+
+				li {
+
+					a {
+						color: white; display: block; font: 400 pem( $mtTextContext )/1 $roboto; padding: pem( 4, $mtTextContext ) pem( 20, $mtTextContext );
+
+						&.child { padding-left: pem( 36, $mtTextContext ); }
+
+						&:hover, &:focus, &:active { color: $green; }
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.suppliers-list {
+	padding: pem( 30 ) 0 pem( 4 );
+
+	ul {
+		list-style: none; margin: 0 0 pem( 50 );
+
+		li {
+
+			&.featured {
+				padding: pem( 10 ); text-align: center;
+
+				.rgba & { background-color: rgba( $taglineGreen, 0.1 ); }
+
+				.no-rgba & { background-color: lighten( $taglineGreen, 40% ); }
+
+				span.suppliers-item-logo { display: block; margin: pem( 12, $mTextContext ) 0 0; }
+			}
+		}
+	}
+}
+
+.suppliers-sidebar { padding: 0 0 pem( 48 ); }
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.suppliers-list {
+		padding: pem( 49 ) 0 pem( 4 );
+
+		ul {
+			list-style: none; margin: 0 0 pem( 50 );
+
+			li {
+
+				&.featured {
+					text-align: left;
+
+					div.suppliers-item-info, span.suppliers-item-logo { display: table-cell; vertical-align: middle; }
+
+					span.suppliers-item-logo { margin: 0; }
+
+					div.suppliers-item-info { padding-right: pem( 12, $mTextContext ); width: 65%; }
+
+				}
+			}
+		}
+	}
+
+	.suppliers-sidebar { padding: pem( 41 ) 0 pem( 48 ); }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.suppliers-search, .suppliers-search-form { display: none; }
+
+	.suppliers-list {
+
+		ul {
+
+			li {
+
+				a { text-decoration: none; }
+			}
+		}
+	}
+}

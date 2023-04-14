@@ -1,0 +1,161 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.advanced-search {
+
+    &.news-events {
+
+        .form {
+
+            label { margin: pem(12, $sTextContext) 0 pem(6, $sTextContext); }
+        }
+    }
+
+    h3, h4 { color: #4a4a4a; font: 400 pem( $ltTextContext )/1.273 $roboto; margin: 0 0 pem(16, $ltTextContext); }
+
+    .search-results-count { font: 300 pem( $stTextContext )/1.538 $roboto; margin: 0 0 0 pem(12, $stTextContext); }
+
+    .form-column {
+
+        &.grey {
+            padding: pem(30) pem(24);
+
+            .rgba & { background: rgba(0, 0, 0, 0.15); }
+
+            .no-rgba & { background-color: $borderGrey; }
+        }
+
+        ul {
+
+            li {
+                margin: pem(18) 0 0;
+
+                &:first-child { margin: 0; }
+            }
+        }
+    }
+
+    .form-row {
+        @extend .clearfix;
+        position: relative;
+
+        > div {
+
+            .form-row-separator { background-color: $taglineGreen; color: white; font: 400 pem( $mtTextContext )/1.625 $roboto; display: block; margin: pem(28, $mtTextContext) 0 0; text-align: center; }
+        }
+    }
+
+    .form-row + .form-row { margin: pem(28) 0 0; }
+
+    .form-column {
+
+        .form-row + .form-row { margin: pem(28) 0 0; }
+    }
+
+    .form {
+
+        select {
+            border-color: white;
+
+            &:hover, &:focus, &:active { border: 1px solid $green; }
+        }
+    }
+}
+
+a.btn-archive { cursor: pointer; margin-top: pem(35); }
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.advanced-search {
+    padding: pem(30) 0 pem(48);
+
+    &.news-events { min-height: 0; padding: pem(12) 0 pem(30); }
+
+    .advanced-search-registration { margin: pem(36) 0 0; }
+
+    .form-column {
+        margin: 0 0 pem(30);
+
+        .form-row {
+
+            > div {
+                margin: pem(18) 0 0;
+
+                &:first-child { margin: 0; }
+            }
+        }
+    }
+
+    a.btn-archive { float: right; margin-top: pem(35); }
+}
+
+.suppliers-intro-search { padding: 0 0 pem(30); }
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min(48em) {
+
+    .advanced-search {
+        min-height: pem(290); padding: pem(36) 0 pem(28);
+
+        &.news-events { min-height: 0; padding: pem(12) 0 pem(22); }
+
+        .advanced-search-registration { margin: 0; padding: pem(56) 0 0; }
+
+        .form-row, .form-column .form-row {
+            margin: 0;
+
+            > div {
+                $formColWidth: 6.5;
+                $formMarginWidth: 2;
+                float: left; margin: 0 0 0 percentage($formMarginWidth / 100);
+
+                &:first-child { margin: 0; }
+
+                &.form-span1 { width: percentage(( $formColWidth * 1 + $formMarginWidth * 0 ) / 100); }
+
+                &.form-span2 { width: percentage(( $formColWidth * 2 + $formMarginWidth * 1 ) / 100); }
+
+                &.form-span3 { width: percentage(( $formColWidth * 3 + $formMarginWidth * 2 ) / 100); }
+
+                &.form-span4 { width: percentage(( $formColWidth * 4 + $formMarginWidth * 3 ) / 100); }
+
+                &.form-span5 { width: percentage(( $formColWidth * 5 + $formMarginWidth * 4 ) / 100); }
+
+                &.form-span6 { width: percentage(( $formColWidth * 6 + $formMarginWidth * 5 ) / 100); }
+
+                &.form-span7 { width: percentage(( $formColWidth * 7 + $formMarginWidth * 6 ) / 100); }
+
+                &.form-span8 { width: percentage(( $formColWidth * 8 + $formMarginWidth * 7 ) / 100); }
+
+                &.form-span9 { width: percentage(( $formColWidth * 9 + $formMarginWidth * 8 ) / 100); }
+
+                &.form-span10 { width: percentage(( $formColWidth * 10 + $formMarginWidth * 9 ) / 100); }
+
+                &.form-span11 { width: percentage(( $formColWidth * 11 + $formMarginWidth * 10 ) / 100); }
+
+                &.form-span12 { width: percentage(( $formColWidth * 12 + $formMarginWidth * 11 ) / 100); }
+
+                &.spacer-bottom-20 {
+                    select { margin-bottom: pem(20); }
+                }
+
+                a.btn-archive { float: right; margin-top: pem(35); }
+            }
+        }
+
+        .form-column { margin: 0; padding: pem(30) 0; }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+    .advanced-search { display: none; }
+}

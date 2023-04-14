@@ -1,0 +1,76 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.row {
+	@extend .clearfix, .container;
+	position: relative;
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.row {
+
+		> div {
+
+			&.left { float: left; }
+
+			&.right { float: right; }
+
+			&.narrow { width: 30%; }
+
+			&.wide { width: 70%; }
+
+			&.half { width: 50%; }
+
+			&.list-wide { width: pem( 450 ); }
+
+			&.list-narrow { width: pem( 275 ); }
+
+			&.project-right { width: 100%; }
+
+			&.project-form-left { width: 50%; }
+
+			&.project-form-right, &.partners-right { margin-left: 5%; width: 45%; }
+
+			&.suppliers-search-left { width: pem( 420 ); }
+		}
+	}
+}
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min( 60em ) {
+
+	.row {
+
+		> div {
+
+			&.narrow { width: pem( 280 ); }
+
+			&.wide { width: pem( 660 ); }
+
+			&.contact-left { width: pem( 490 ); }
+
+			&.contact-right { width: pem( 450 ); }
+
+			&.list-wide { width: pem( 540 ); }
+
+			&.list-narrow { width: pem( 300 ); }
+
+			&.project-left { width: pem( 460 ); }
+
+			&.project-right {
+				width: pem( 440 );
+
+				.no-csscolumns & { width: pem( 480 ); }
+			}
+
+			&.suppliers-search-left { width: pem( 590 ); }
+
+			&.suppliers-intro-right { width: pem( 340 ); }
+		}
+	}
+}

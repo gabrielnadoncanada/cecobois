@@ -1,0 +1,135 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.text .suppliers-reference {
+	border-top: 1px solid $borderGrey; padding: pem( 22 ) 0 0;
+
+	h1 { color: black; font: 300 pem( $xlsTextContext )/1.2 $roboto; letter-spacing: -1px; margin: 0 0 pem( 26, $xlsTextContext ); }
+
+	h2 { color: black; font: 600 pem( $msTextContext )/1.358 $roboto; margin: 0; }
+
+	ul {
+		margin: 0;
+
+		li {
+			@extend .clearfix;
+			font-size: pem( $browserContext ); margin: pem( 20 ) 0 0; padding: 0;
+
+			&:first-child { margin: 0; }
+
+			&:before { display: none; }
+		}
+	}
+}
+
+.reference-item-right {
+	text-align: center;
+
+	img { height: auto; max-width: 100%; width: inherit; }
+}
+
+.suppliers-description {
+	border-top: 1px solid $borderGrey;
+}
+
+.suppliers-details {
+	border-top: 1px solid $borderGrey; padding: pem( 6 ) 0 0;
+
+	.content-toggle {
+		$contentArrowUpPath: '/common/icon-round-arrow-up.png'; $contentArrowDownPath: '/common/icon-round-arrow-down.png';
+		@include patched-inline-image( $contentArrowDownPath, no-repeat, right center, $mtTextContext ); @include single-transition( color, $transitionDuration );
+		color: $taglineGreen; display: block; font: 400 pem( $mtTextContext )/1 $roboto; outline: none; padding: pem( 16, $mtTextContext ) pem( remove-unit( image-width( $contentArrowDownPath ) ), $mtTextContext ) pem( 16, $mtTextContext ) 0; text-align: left; width: 100%;
+
+		&:hover, &:focus, &:active { color: darken( $taglineGreen, 10% ); }
+
+		&.open { @include patched-inline-image( $contentArrowUpPath, no-repeat, right center, $mtTextContext ); }
+	}
+
+	.suppliers-details-item {
+		height: 0; overflow: hidden; border-bottom: 1px solid $borderGrey;
+
+		&.content-open { height: auto; }
+
+		.suppliers-details-content {
+			padding: 0 0 pem( 16 );
+
+			p {
+				font: 300 pem( $stTextContext )/1.385 $roboto; margin: 0 0 pem( 10, $stTextContext );
+
+				strong { display: block; font-weight: 600; }
+			}
+		}
+	}
+
+	.suppliers-details-website {
+		margin: pem( 18 ) 0 pem( 24 );
+
+		a {
+			color: $green; font: 400 pem( $stTextContext )/1 $roboto; text-decoration: underline;
+
+			&:hover, &:focus, &:active { color: darken( $green, 10% ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.suppliers-intro-search { padding: pem( 56 ) 0 0; }
+
+	.text .suppliers-description + .suppliers-reference { margin: pem( 28 ) 0 0; }
+
+	.reference-item-left { float: left; width: 100%; margin-right: pem( -200 ); padding-right: pem( 220 ); }
+
+	.reference-item-right { float: right; width: pem( 200 ); }
+
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min( 60em ) {
+
+	.text .suppliers-reference {
+		border-top: 1px solid $borderGrey; padding: pem( 22 ) 0 0;
+
+		h1 { color: black; font: 300 pem( $xlsTextContext )/1.2 $roboto; letter-spacing: -1px; margin: 0 0 pem( 26, $xlsTextContext ); }
+
+		h2 { color: black; font: 600 pem( $msTextContext )/1.358 $roboto; margin: 0; }
+
+		ul {
+
+			li {
+				font-size: pem( $browserContext ); margin: pem( 20 ) 0 0; padding: 0;
+
+				&:first-child { margin: 0; }
+
+				&:before { display: none; }
+			}
+		}
+
+		.reference-item-left { margin-right: pem( -300 ); padding-right: pem( 320 ); }
+
+		.reference-item-right { width: pem( 300 ); }
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.suppliers-details .suppliers-details-website { display: none; }
+
+	.reference-item-right { text-align: left; }
+
+	.suppliers-content, .text .suppliers-reference { border-top: none; padding: 0; }
+
+	.suppliers-details {
+
+		.suppliers-details-item { height: auto; }
+	}
+}

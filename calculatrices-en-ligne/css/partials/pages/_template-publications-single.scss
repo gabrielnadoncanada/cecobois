@@ -1,0 +1,185 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.publication-featured {
+
+    h2 { color: $taglineGreen; font: 300 pem( $xxltTextContext )/1.2 $roboto; margin: 0 0 pem(21, $xxltTextContext); }
+
+    h3 { border-bottom: 1px solid $borderGrey; font: 300 pem( $xlsTextContext )/1.35 $roboto; margin: pem(8, $xlsTextContext) 0 pem(27, $xlsTextContext); padding: 0 0 pem(28, $xlsTextContext); }
+
+    h4 { color: $taglineGreen; font: 500 pem( $mtTextContext )/1.25 $roboto; }
+
+    ul { list-style: none; margin: 0 0 pem(18); }
+
+    p, li { font: 300 pem( $stTextContext )/1.388 $roboto; }
+
+    p {
+        margin: 0 0 pem(18, $stTextContext);
+
+        &.publication-pricing {
+            font: 400 pem( $mTextContext )/1.25 $roboto; margin: pem(10, $mTextContext) 0 pem(6, $mTextContext);
+
+            a {
+                color: $bodyBlack;
+
+                &:hover, &:focus, &:active { color: $green; }
+            }
+        }
+    }
+
+    img.featured-image { height: auto; margin: 0 0 pem(20); max-width: 100%; outline: 1px solid $lightBorderGrey; }
+
+    .publication-content-info {
+        display: table; width: 100%;
+
+        .publication-date { display: table-header-group; font: 600 pem( $stTextContext )/1.388 $roboto; }
+    }
+}
+
+.publications-archive, .publication-documentation {
+
+    > h3 { color: $taglineGreen; font: 300 pem( $xxltTextContext )/1.2 $roboto; margin: 0 0 pem(21, $xxltTextContext); }
+
+    > ul { list-style: none; }
+
+    a.btn { margin-top: pem(14, $msTextContext); }
+}
+
+.publications-archive {
+    border-top: 1px solid $borderGrey;
+
+    &.newspapers > ul > li { @extend .clearfix; }
+
+    > ul {
+        @extend .clearfix;
+        border-bottom: 1px solid $borderGrey; margin: 0 0 pem(32); padding: 0 0 pem(16);
+
+        > li {
+
+            &.row-first { clear: both; }
+
+            .publication-archive-content, .publication-excerpt {
+                > h4 { color: $taglineGreen; display: block; font: 500 pem( $mtTextContext )/1.25 $roboto; margin: pem(10, $mtTextContext) 0 0; }
+
+                > p {
+                    font: 400 pem( $stTextContext )/1.154 $roboto;
+
+                    &.publication-pricing { font-weight: 500; margin: 0 0 pem(9, $stTextContext); }
+                }
+            }
+
+            .publication-archive-content {
+                display: table; table-layout: fixed; width: 100%;
+
+                .image-wrapper { display: inline-block; position: relative; }
+
+                .btn-content-modal {
+                    @include border-radius(50%); @include box-shadow(-2px 2px 5px -2px rgba($black, 0.75));
+                    background-color: $white; color: $green; position: absolute; line-height: pem(36); right: pem(6); text-align: center; top: pem(6); width: pem(36);
+
+                    &:hover, &:focus, &:active { color: darken($green, 20%); }
+
+                    &:before { display: block; font-size: pem($mTextContext); }
+                }
+
+                .publication-archive-image {
+                    display: table-header-group;
+
+                    img { height: auto; max-width: 100%; outline: 1px solid $lightBorderGrey; }
+                }
+            }
+
+            .publication-excerpt .text { margin-top: pem(14); }
+        }
+    }
+}
+
+.publication-full-content + .publication-documentation { border-top: none; padding-top: 0; }
+
+.publication-documentation {
+
+    ul {
+
+        li {
+            margin: pem(19) 0 0;
+
+            &:first-child { margin: 0; }
+
+            a {
+                @extend .icon-file;
+                color: $taglineGreen; font: 500 pem( $mtTextContext )/1.25 $roboto;
+
+                &:before { color: black; display: inline-block; font: pem( $xxlTextContext, $mtTextContext )/1 $icomoon; margin: 0 pem(18, $xxlTextContext) 0 0; vertical-align: middle; }
+
+                &:hover, &:focus, &:active { color: black; }
+            }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.publication-featured { padding-bottom: pem(40); padding-top: pem(30); }
+
+.publications-archive {
+    padding: pem(27) 0 0;
+
+    > ul > li { margin: 0 0 pem(40) 0; }
+}
+
+.publication-documentation {
+    border-top: 1px solid $borderGrey; padding-bottom: pem(40); padding-top: pem(27);
+
+    &:first-child { border-top: none; }
+}
+
+@include respond-min(28.125em) {
+
+    .publications-archive {
+        &.newspapers > ul > li {
+            .publication-archive-content { float: left; width: 40%; }
+
+            .publication-excerpt { float: right; padding-left: pem(14); width: 60%; }
+        }
+    }
+
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min(48em) {
+
+    .publication-featured { padding-bottom: pem(90); padding-top: pem(52); }
+
+    .publications-archive {
+        padding: pem(27) 0 0;
+
+        &.newspapers > ul > li {
+            margin-right: 0; margin-left: 4%; width: 48%;
+
+            &.row-first { margin-left: 0; }
+        }
+
+        > ul {
+            border-bottom: 1px solid $borderGrey; margin: 0 0 pem(32); padding: 0 0 pem(16);
+
+            > li { float: left; margin: 0 1% pem(40) 0; width: 19%; }
+        }
+    }
+
+    .publication-documentation { padding-bottom: pem(60); }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+    .publications-archive > ul > li { display: inline-block; margin: 0 3% pem(30) 0; width: 20%; }
+
+    .publication-featured > div { float: left; padding-right: pem(50); width: 50%; }
+}

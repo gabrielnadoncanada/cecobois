@@ -1,0 +1,174 @@
+/*
+Theme Name:         Base
+Description:        Theme base
+Version:            1.0
+Author:             Gabriel Nadon
+Text Domain:        sage
+License:            MIT License
+License URI:        https://opensource.org/licenses/MIT
+Requires PHP:       8.0
+Requires at least:  5.9
+*/
+
+@import url('./styles/old.css');
+
+
+.h-100 {
+    height: 100%;
+}
+
+.d-none {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .d-md-block {
+        display: block;
+    }
+
+    .d-md-none {
+        display: none;
+    }
+}
+
+
+.wp-block-post > * {
+    height: 100%;
+}
+
+#calculatrices-cebobois {
+    margin-top: -100px !important;
+    z-index: 1;
+    position: relative;
+}
+
+.wp-element-button {
+    border-top-right-radius: 0;
+}
+
+@media (min-width: 768px) {
+    header > .has-base-background-color {
+        background: transparent !important;
+    }
+
+    header.wp-block-template-part {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    header .wp-block-social-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header .wp-block-social-links li {
+        position: relative;
+        padding-bottom: 10px;
+        color: #fff !important;
+    }
+
+    header .wp-block-social-links li:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 50%;
+        height: 2px;
+        background: #fff;
+        display: block;
+        transform: translateX(-50%);
+    }
+}
+
+
+header #loginform {
+    display: none;
+
+    background: #fff;
+    padding: 25px 20px 30px;
+    width: 100%;
+    min-width: 400px;
+    height: 380px;
+    position: absolute;
+    z-index: 996;
+    top: 62px;
+    right: 0;
+    box-shadow: 2px 5px 15px 5px rgb(0, 0, 0, 0.5);
+}
+
+header #loginform h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.wp-block-query .wp-block-post {
+    position: relative;
+}
+
+
+.wp-block-query .wp-block-post-title a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.wp-block-query .wp-block-post-title a::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - (40px / 2));
+    z-index: 2;
+    transition: transform 0.3s ease-in-out, background-image 0.3s ease-in-out;
+    border-radius: 50%;
+    right: -20px;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 40px;
+    background-position: 50% 50%;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Calque_1' data-name='Calque 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23fff; %7D circle %7B fill: %23000; %7D %3C/style%3E%3C/defs%3E%3Ccircle cx='20' cy='20' r='20'/%3E%3Cpath class='cls-1' d='M26.75,18.15v3.6h-5v5h-3.6v-5h-4.9v-3.6h4.9v-4.9h3.6v4.9h5Z'/%3E%3C/svg%3E");
+}
+
+.wp-block-query .wp-block-post:hover a::before {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Calque_1' data-name='Calque 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23fff; %7D circle %7B fill: %23F6D550; %7D %3C/style%3E%3C/defs%3E%3Ccircle cx='20' cy='20' r='20'/%3E%3Cpath class='cls-1' d='M26.75,18.15v3.6h-5v5h-3.6v-5h-4.9v-3.6h4.9v-4.9h3.6v4.9h5Z'/%3E%3C/svg%3E");
+    transform: rotate(180deg);
+}
+
+.wp-block-query .wp-block-post:hover a {
+    color: #F6D550;
+}
+
+a {
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+.wp-block-post-template.is-flex-container {
+    gap: 1.75em;
+}
+@media (min-width: 600px) {
+    .wp-block-post-template.is-flex-container.is-flex-container.columns-3>li {
+        width: calc(33.33333% - 1.186em)
+    }
+}
+
+.btn-login {
+    cursor: pointer;
+}
+
+.logged-in + .btn-login {
+    display: none !important;
+}
+
+.wp-block-button__link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

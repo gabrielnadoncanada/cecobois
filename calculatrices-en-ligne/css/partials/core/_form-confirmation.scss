@@ -1,0 +1,44 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.form-confirmation {
+
+	h2 { @include heading1; }
+
+	h3 { @include heading2; }
+
+	h4 { @include heading3; }
+
+	.legend {
+		font: 500 pem( $stTextContext )/1.385 $roboto; margin: pem( 6, $stTextContext ) 0 0;
+
+		&:first-child { margin: 0; }
+	}
+
+	.ng-binding { font: 300 pem( $stTextContext )/1.385 $roboto; }
+
+	ul {
+
+		li {
+
+			&:before { display: none; }
+		}
+	}
+
+	.block, .price-info { margin: 0 0 pem( 24 ); }
+
+	.price-info {
+		border-top: 1px solid $green; padding-top: pem( 18 );
+
+		&:first-child { border-top: none; padding-top: 0;  }
+
+		.price-total { color: $green; font: 300 pem( $xlsTextContext )/1 $roboto; }
+	}
+
+	.participants {
+
+		.participant { border-left: 4px solid $green; padding: 0 0 0 pem( 8 ); margin: pem( 24 ) 0 0; }
+	}
+
+	.terms { border: 1px solid $green; padding: pem( 12 ); }
+}

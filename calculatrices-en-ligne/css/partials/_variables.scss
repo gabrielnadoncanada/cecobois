@@ -1,0 +1,105 @@
+/* ==|== colors ============================================================= */
+$bodyBlack: #111112;
+$lightGrey: #807f83;
+$mediumGrey: #585858;
+$borderGrey: #c3c3c3;
+$lightBorderGrey: #e2e2e2;
+$mediumBorderGrey: #5b5b5b;
+$darkBorderGrey: #626262;
+$dateGrey: #b5b5b5;
+$placeholderGrey: #8c8c8c;
+$headerLightGrey: #ededed;
+$searchIconGrey: #adadad;
+$green: #76b147;
+$highlightGreen: #a7cd89;
+$borderGreen: #66ac2f;
+$taglineGreen: #7ac142;
+$black: #1c1c1c;
+$detailsBlack: #2c2c2c;
+$red: #cc0000;
+$darkRed: #990000;
+
+$white: #ffffff;
+/* ========================================================================== */
+
+/* ==|== font & font-size (ems context) ===================================== */
+$browserContext: 24;
+
+$xsTextContext: 10;
+$sTextContext: 12;
+$stTextContext: 13;
+$msTextContext: 14;
+$mTextContext: 15;
+$mtTextContext: 16;
+$lsTextContext: 17;
+$lTextContext: 18;
+$ltTextContext: 19;
+$xlsTextContext: 20;
+$xlTextContext: 22;
+$xltTextContext: 24;
+$xxlsTextContext: 26;
+$xxlTextContext: 28;
+$xxltTextContext: 30;
+
+$roboto: 'Roboto', sans-serif;
+$icomoon: 'icomoon';
+/* ========================================================================== */
+
+/* ==|== normalize ========================================================== */
+$layoutWidth: 960;
+$transitionDuration: 0.25s;
+/* ========================================================================== */
+
+/* ==|== non-semantic helper classes ======================================== */
+$containerPaddingRL: 10;
+/* ========================================================================== */
+
+/* ==|== grid =============================================================== */
+$rightColWidthTablet: 224;
+$rightColWidthDesktop: 300;
+/* ========================================================================== */
+
+/* ==|== header ============================================================= */
+$mobileNavWidth: 280;
+$headerTopHeight: 40;
+$searchIconPath: '/common/img-btn-search.png';
+$selectArrowPath: '/common/img-select-arrow.png';
+/* ========================================================================== */
+
+/* ==|== home =============================================================== */
+$homeSections: 'news', 'events';
+$homeSectionsLength: length($homeSections);
+$footerExcellenceImage: '/home/img-footer-award.png';
+$footerExcellenceImageTop: 55;
+/* ========================================================================== */
+
+/* ==|== sliders ============================================================ */
+$squarePagerSize: 35;
+/* ========================================================================== */
+
+/* ==|== asides ============================================================= */
+$bioImageWidth: 160;
+$bioImageMargin: 20;
+$bioImageTabletWidth: 100;
+/* ========================================================================== */
+
+/* ==|== calculators ======================================================== */
+$calculatorIcons: 'calculatrice-ouvertures', 'calculatrice-retrait', 'colonnes', 'murs-ossature-legere', 'panneaux-lamelle-croise', 'poutrelles-bois-ajourees', 'poutrelles-bois-i', 'poutres-bois', 'resistance-feu';
+$calculatorIconsLength: length($calculatorIcons);
+$calculatorIconsPaddingL: 64;
+$calculatorAppSmallPath: '/calculators/img-calculator-apps-small.png';
+$calculatorAppMediumPath: '/calculators/img-calculator-apps-medium.png';
+$calculatorAppLargePath: '/calculators/img-calculator-apps-large.png';
+/* ========================================================================== */
+
+/* ==|== footer ============================================================= */
+$footerMenuIcons: 'calculators', 'projects', 'publications', 'suppliers';
+$footerMenuIconsLength: length($footerMenuIcons);
+$footerMenuPaddingT: 115;
+$footerIconWidth: 70;
+/* ========================================================================== */
+
+/* ==|== form =============================================================== */
+$checkboxRadioSize: 13;
+$checkboxRadioMargin: 7;
+/* ========================================================================== */

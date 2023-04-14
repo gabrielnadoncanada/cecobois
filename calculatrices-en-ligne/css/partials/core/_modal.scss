@@ -1,0 +1,124 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.nyroModalBg {
+	@include opacity( 0.7 );
+	background: #000; height: 100%; left: 0; overflow: hidden; position: fixed; top: 0; width: 100%;
+}
+.nmReposition { position: absolute; }
+
+.nyroModalCloseButton {
+	color: #888888; font-size: pem( $lTextContext ); height: pem( 50, $lTextContext ); outline: none; padding: pem( 16, $lTextContext ) pem( 18, $lTextContext ); right: 0; top: 0; width: pem( 55, $lTextContext );
+
+	&:hover, &:focus, &:active { color: $taglineGreen; }
+}
+
+.nyroModalTitle { color: #ddd; font-size: 1.1em; left: 0; margin: 0; top: pem( -26 ); }
+
+.nyroModalCont {
+	background: white; border: 1px solid $lightBorderGrey; margin: pem( 25 ); position: absolute;
+
+	iframe { height: pem( 400 ); width: pem( 600 ); }
+}
+
+.nyroModalError {
+	border: 4px solid red; color: red; height: pem( 250 ); width: pem( 250 );
+
+	div { min-height: 0; min-width: 0; padding: pem( 10 ); }
+}
+
+.nyroModalLink, .nyroModalDom, .nyroModalForm, .nyroModalFormFile { max-width: pem( 885 ); min-height: pem( 250 ); min-width: pem( 250 ); position: relative; }
+
+.nyroModalImage, .nyroModalSwf, .nyroModalIframe, .nyroModalIframeForm { overflow: hidden; position: relative; }
+
+.nyroModalImage {
+
+	img { vertical-align: top; }
+}
+
+.nyroModalHidden { left: -9999em; top: -9999em; }
+
+.nyroModalLoad {
+	@include bounded-inline-image( '/modal/ajaxLoader.gif', $browserContext, false );
+	height: pem( 100 ); padding: 0; position: absolute; width: pem( 100 ); }
+
+.nyroModalPrev, .nyroModalNext {
+	background: transparent url( 'data:image/gif;base64,AAAA' ) left 20% no-repeat; cursor: pointer; height: 60%; max-height: pem( 300 ); min-height: pem( 50 ); outline: none; position: absolute; text-indent: -9999em; top: 0; width: pem( 150 );
+}
+
+.nyroModalImage .nyroModalPrev, .nyroModalImage .nyroModalNext { height: 100%; max-height: none; width: 40%; }
+
+.nyroModalPrev {
+	left: 0;
+
+	&:hover { background-image: url(../img/prev.gif); }
+}
+
+.nyroModalNext {
+	background-position: right 20%; right: 0;
+
+	&:hover, &:focus, &:active { background-image: url(../img/next.gif); background-position: right 20%; }
+}
+
+.modal-container {
+	@extend .clearfix;
+
+	> div {
+		padding: pem( 48 ) pem( 42 ) pem( 42 );
+
+		&.modal-right { background-color: $headerLightGrey; }
+
+		h2 { color: $taglineGreen; font: 300 pem( $xxltTextContext )/1.2 $roboto; margin: 0 0 pem( 19, $xxltTextContext ); }
+
+		p { font: 300 pem( $mTextContext )/1.4 $roboto; margin: 0 0 pem( 33, $mTextContext ); }
+
+		.modal-form-bottom {
+			@extend .clearfix;
+			margin: pem( 40 ) 0 0;
+
+			 div {
+			 	float: left; width: 50%;
+
+				&.modal-form-left {
+
+					ul {
+						list-style: none;
+
+						li {
+							font: 300 pem( $sTextContext )/1.5 $roboto; margin: 0;
+
+							a {
+								color: black; text-decoration: underline;
+
+								&:hover, &:focus, &:active { color: $green; }
+							}
+						}
+					}
+				}
+
+				&.modal-form-right { text-align: right; }
+			 }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.modal-container {
+
+		> div {
+			float: left;
+
+			&.modal-left { width: 60%; }
+
+			&.modal-right {
+				width: 40%;
+
+				&:after { background-color: $headerLightGrey; bottom: 0; content: ""; position: absolute; top: 0; right: 0; width: 40%; z-index: -1; }
+			}
+		}
+	}
+}

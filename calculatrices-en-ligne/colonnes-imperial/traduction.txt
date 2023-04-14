@@ -1,0 +1,70 @@
+Nouvelle String :
+
+#: webroot/calculator/colonnes-imperial/variables.php:752
+Sur toute la hauteur
+Full lateral support
+
+
+#: webroot/calculator/colonnes-imperial/variables.php:753
+À la mi-hauteur
+At mid-height
+
+
+#: webroot/calculator/colonnes-imperial/variables.php:754
+Non retenu
+Unsupported
+
+
+#: webroot/calculator/colonnes-imperial/variables.php:766
+CNB 2010
+NBC 2010
+
+
+#: webroot/calculator/colonnes-imperial/variables.php:767
+CNB 2015
+NBC 2015
+
+
+#: webroot/calculator/colonnes-imperial/variables.php:778
+CSA 086-09
+CSA 086-09
+
+
+#: webroot/calculator/colonnes-imperial/variables.php:779
+CSA 086-14
+CSA 086-14
+
+
+#: webroot/calculator/colonnes-imperial/form.php:212
+Axe faible retenu
+Support Along the Weak Axis
+
+
+#: webroot/calculator/colonnes-imperial/form.php:224
+Édition du Code national du bâtiment
+Edition of the National Building Code
+
+
+#: webroot/calculator/colonnes-imperial/form.php:230
+Édition de la norme CSA 086
+Edition of the CSA 086 standard
+
+
+#: webroot/calculator/colonnes-imperial/reponse.php:5
+Analyses selon CSA O86-14 — Calculs aux états limites
+Design in accordance with CSA O86-14 – Limit States Design
+
+
+#: webroot/calculator/colonnes-imperial/reponse.php:97
+Les résultats sont basés sur les résistances génériques données dans la norme CSA O86 sur les <i>Règles de calculs des charpentes en bois</i>.
+Results are based on generic strengths given in CSA O86 – <i>Engineering Design in Wood.</i>
+
+
+#: webroot/calculator/colonnes-imperial/reponse.php:100
+Les résultats sont basés sur les résistances génériques décrites dans le <i>Guide technique sur les poutres et colonnes en gros bois pour la construction commerciale</i> publié par Cecobois. Se référer aux fabricants afin d’obtenir un dimensionnement plus précis en fonction de leurs produits respectifs.
+Results are based on generic resistances as described in the Cecobois Technical Guide for commercial timber beam and column design. Refer to manufacturer's publication for more information on available beam and column sizes.
+
+
+#: webroot/calculator/colonnes-imperial/reponse.php:103
+Les résultats sont basés sur les résistances publiées dans le rapport d’évaluation CCMC 13216-R. Se référer à la documentation du fabricant afin d’obtenir de plus amples informations sur ce produit.
+Results are based on resistances published in CCMC evaluation report 13216-R. Refer to manufacturer's publication on this product for more information.

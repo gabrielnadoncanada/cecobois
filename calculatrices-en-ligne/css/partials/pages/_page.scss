@@ -1,0 +1,414 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.lt-ie9 header.main + .main-content { background-color: white; }
+
+main {
+    background-color: white;
+
+    .category-container {
+        background-color: $black; overflow: hidden;
+
+        a.category-title { color: white; display: block; }
+
+        .category-title, h1 {
+            background-color: rgba($green, 0.85); color: white; white-space: nowrap;
+
+            .flexbox & { @include display-flex; @include align-items(center); }
+
+            .no-flexbox & { display: table-cell; vertical-align: middle; }
+
+            .no-rgba & { background-color: $green; }
+
+            span { display: inline-block; font: 300 pem( $xxlsTextContext )/1 $roboto; padding: pem(32, $xxlsTextContext) pem(24, $xxlsTextContext) pem(32, $xxlsTextContext) pem(32, $xxlsTextContext); vertical-align: middle; white-space: normal; -webkit-font-smoothing: antialiased; }
+        }
+
+        .thumbnail-container {
+            position: absolute; top: 0; z-index: 0;
+
+            .thumbnail-link {
+                float: left;
+
+                img { height: auto; width: 100%; }
+            }
+        }
+    }
+
+    .main-title {
+        @extend .text;
+        display: table;
+
+        h1 { margin: 0; padding-bottom: pem(28, $xxltTextContext); }
+
+        &.error { color: $red; margin-bottom: pem(-25); }
+
+        .content-image {
+            display: table-header-group;
+
+            img { height: auto; margin: 0 0 pem(20); max-width: 100%; }
+        }
+    }
+
+    .main-content { @extend .text; }
+
+    .awards-header { @extend .light-wood-container; }
+
+    .intro-container {
+        @extend .text;
+        max-width: pem(620);
+
+        &.calculators-intro { max-width: none; padding-bottom: 0; }
+
+        &.midi-conferences {
+
+            &:after { content: ""; }
+        }
+
+        &.project-intro {
+            max-width: none; padding-bottom: 0;
+
+            h2 { margin: 0 0 pem(4, $xxltTextContext); }
+        }
+
+        h2 { color: $green; font: 300 pem( $xxltTextContext )/1.2 $roboto; margin: 0 0 pem(17, $xxltTextContext); }
+
+        p { font-weight: 400; }
+
+        h3.success-message__title {
+            color: #76b147;
+            font: 300 1.25em/1.2 "Roboto",sans-serif;
+
+            margin: 0 0 .56667em;
+        }
+
+        &.suppliers-search-intro > .success { font-size: pem($mtTextContext); font-weight: 300; }
+    }
+
+    .logo-container {
+
+        img { height: auto; max-width: 100%; }
+    }
+
+    .details-container {
+        background-color: $detailsBlack; color: $headerLightGrey; margin: 0 0 pem(36); padding: pem(25) pem(30);
+
+        h1 { font: 300 pem( $lTextContext )/1.333 $roboto; margin: 0 0 pem(17, $lTextContext); }
+
+        h2 { font: 500 pem( $stTextContext )/1.385 $roboto; }
+
+        p { font: 300 pem( $stTextContext )/1.385 $roboto; margin: 0 0 pem(21, $stTextContext); }
+    }
+
+    .form-container { padding: pem(36) 0 pem(48); }
+
+    .calculator-terms {
+        margin-bottom: pem(48);
+
+        & ~ .main-title, & ~ .calculator-container { display: none; }
+    }
+
+    .calculator-container {
+        padding: 0 0 pem(48);
+
+        .schematics-image {
+
+            img { height: auto; max-width: 100%; }
+        }
+    }
+
+    .side-menu {
+
+        ul {
+            list-style: none; position: relative; z-index: 1;
+
+            li {
+
+                a, button {
+                    color: black; display: block; font: 300 pem( $lsTextContext )/1.177 $roboto; padding: pem(18, $lsTextContext) 0 pem(14, $lsTextContext); text-align: left; width: 100%;
+
+                    .rgba & { border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+
+                    .no-rgba & { border-bottom: 1px solid #dadada; }
+
+                    &:hover, &:focus, &:active { color: $green; }
+                }
+            }
+        }
+    }
+
+    .search-category {
+        margin: 0 0 pem(45);
+
+        .search-category-item { border-bottom: 1px solid $lightBorderGrey; margin-top: pem(15); }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+main {
+
+    .home & { padding-bottom: pem(45); }
+
+    .category-container {
+        $titleImagePath: '/common/bkg-page-title-mobile.jpg';
+        $thumbnailSize: remove-unit(image-height($titleImagePath));
+        @include patched-inline-image($titleImagePath, no-repeat, center center, false);
+        height: pem($thumbnailSize);
+
+        .category-title, h1 { height: pem($thumbnailSize); }
+
+        .thumbnail-container { display: none; }
+    }
+
+    .awards-header {
+
+        .left {
+            padding: pem(10) 0;
+
+            span.awards-logo {
+                @include bounded-inline-image('/awards/logo-prix-excellence-cecobois-small.png');
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .intro-container {
+        padding: pem(30) 0 pem(15);
+
+        &.midi-conferences {
+            padding: pem(30) 0 0;
+
+            &:after {
+                @include bounded-inline-image('/events/bkg-midi-conferences-small.png', $browserContext, false);
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .main-title { padding: pem(30) 0 0; }
+
+    .logo-container { padding: 0 0 pem(30); text-align: center; }
+
+    .main-content {
+        padding: 0 0 pem(30);
+
+        &.top { padding-top: pem(30); }
+
+        &.suppliers-content {
+            padding: 0;
+
+            .suppliers-description { padding: pem(25) 0 0; }
+
+            .suppliers-reference { padding-bottom: pem(40); }
+        }
+    }
+
+    .side-menu { padding: 0 0 pem(30); }
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min(48em) {
+
+    main {
+
+        .home & { padding-bottom: pem(50); }
+
+        .category-container {
+            $thumbnailSize: 188;
+            background-image: none; height: pem($thumbnailSize);
+
+            .category-title, h1 {
+                height: pem($thumbnailSize); position: relative; width: pem(376); z-index: 3;
+
+                &:before, &:after { content: ""; left: -1px; height: 100%; position: absolute; right: 0; top: 0; }
+
+                &:before {
+                    @include patched-inline-image('/common/bkg-header-title.jpg');
+                    z-index: -2;
+                }
+
+                &:after {
+                    @include box-shadow(0 0 40px 0 rgba(black, 0.75));
+                    background-color: rgba($green, 0.85); z-index: -1;
+                }
+            }
+
+            .thumbnail-container {
+                display: block !important; margin: 0 pem(-$thumbnailSize * 2);
+
+                .thumbnail-link {
+                    height: pem($thumbnailSize); overflow: hidden; position: relative; width: pem($thumbnailSize); z-index: 1;
+
+                    &.margin-left { margin-left: pem($thumbnailSize * 2); }
+
+                    &.shadow {
+                        @include box-shadow(0 0 40px 0 rgba(black, 0.75));
+                        z-index: 2;
+                    }
+
+                    &:hover, &:focus, &:active {
+                        .thumbnail-info { @include transform(translateX(0)); }
+                    }
+
+                    .thumbnail-info {
+                        @include transition-property(all); @include transition-duration($transitionDuration); @include transform(translateX(100%)); @include display-flex; @include align-items(center);
+                        background-color: rgba(darken($green, 15%), 0.85); color: $white; font-size: pem($mtTextContext); font-weight: 300; height: pem($thumbnailSize, $mtTextContext); left: 0; line-height: 1.25; padding: pem(20, $mtTextContext); position: absolute; top: 0; width: pem($thumbnailSize, $mtTextContext);
+                    }
+                }
+            }
+        }
+
+        .awards-header {
+
+            .left {
+                padding: pem(23) 0; width: 30%;
+
+                span.awards-logo { margin: 0; }
+            }
+
+            .right {
+                text-align: right; width: 70%;
+
+                img { height: auto; max-width: 100%; }
+            }
+        }
+
+        .intro-container {
+            padding: pem(52) 0 pem(29);
+
+            &.midi-conferences {
+                min-height: pem(300);
+
+                &:after {
+                    @include bounded-inline-image('/events/bkg-midi-conferences.png', $browserContext, false);
+                    bottom: 0; position: absolute; right: pem(30);
+                }
+            }
+
+            &.suppliers-search-intro { max-width: pem(370); }
+        }
+
+        .main-title { padding: pem(52) pem(45) 0 0; }
+
+        .logo-container { padding: pem(52) 0 pem(28); text-align: center; }
+
+        .main-content {
+            padding: 0 pem(45) pem(133) 0;
+
+            &.right { padding: 0 pem(45) pem(133) pem(60); }
+
+            &.top { padding-top: pem(52); }
+        }
+
+        .contact-form { padding-top: pem(52); }
+
+        .side-menu {
+            padding: pem(38) 0 0;
+
+            &:before {
+                bottom: 0; content: ""; margin-left: pem(-$containerPaddingRL * 0.5); position: absolute; top: 0; width: 30%;
+
+                .boxshadow & { @include box-shadow(black -35px 0 50px -50px inset); }
+            }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min(60em) {
+
+    main {
+
+        .awards-header {
+
+            .left {
+                padding: pem(14) 0;
+
+                span.awards-logo { @include bounded-inline-image('/awards/logo-prix-excellence-cecobois.png', $browserContext, false); }
+            }
+        }
+
+        .intro-container {
+
+            &.suppliers-search-intro { max-width: pem(530); }
+
+            &.midi-conferences {
+
+                &:after { right: pem(112); }
+            }
+        }
+
+        .main-title { padding: pem(52) pem(120) 0 0; }
+
+        .main-content {
+            padding: 0 pem(120) pem(43) 0;
+
+            &.right { padding: 0 0 pem(133) pem(120); }
+
+            &.top { padding-top: pem(52); }
+        }
+
+        .side-menu {
+
+            &:before { margin-left: 0; width: pem(280); }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+    main {
+
+        .intro-container.midi-conferences:after, .side-menu { display: none; }
+
+        .awards-header {
+
+            .left {
+                padding: 0;
+
+                span.awards-logo { height: auto; margin: 0; text-indent: 0; width: auto; }
+            }
+        }
+
+        .category-container {
+            height: auto;
+
+            .category-title, h1 {
+                height: auto;
+
+                span { padding: 0; }
+            }
+        }
+
+        .awards-header .left, .category-container .category-title, .category-container h1 { margin: pem(20) 0; }
+
+        .category-container h1 {
+
+            span { font: 300 pem( $xxltTextContext )/1.2 $roboto; }
+        }
+
+        .awards-header .left, .category-container .category-title {
+
+            span { font: 300 pem( $xltTextContext )/1.25 $roboto; }
+        }
+
+        .details-container { margin: 0; padding: 0; }
+
+        .logo-container { text-align: left; }
+
+        .calculator-container {
+
+            .form { display: block; }
+        }
+    }
+}

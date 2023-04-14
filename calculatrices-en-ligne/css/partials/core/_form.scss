@@ -1,0 +1,349 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.form {
+	@extend .clearfix;
+
+	/* ==|== Placeholder color=================================================== */
+	::-webkit-input-placeholder { /* WebKit browsers */
+    color:    $placeholderGrey;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	    color:    $placeholderGrey;
+	    opacity:  1;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	    color:    $placeholderGrey;
+	    opacity:  1;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */ color: $placeholderGrey; }
+
+	.conferences-title { display: block; font: normal 500 pem( $msTextContext )/1.385 $roboto; margin: pem( 10, $msTextContext ) 0 pem( 2, $msTextContext ); }
+
+	.mesure_unite { text-transform: none; }
+
+	.size-divider {
+		float: right; text-align: right; width: 50%;
+
+		&:first-child { float: left; text-align: left; }
+
+		input[type="text"] { display: inline-block; width: 80%; }
+
+		span { font: normal 400 pem( $sTextContext )/1.385 $roboto; margin-left: pem( 4, $sTextContext ); }
+	}
+
+	select::-ms-expand{ display:none; }
+
+	p.description { font: normal 300 pem( $mtTextContext )/1.25 $roboto; }
+
+	.input.checkbox { @extend .clearfix;}
+
+	.footer-form {
+
+		ul {
+			margin: 0 0 pem( 10 );
+
+			> li {
+				margin-top: pem( 10 );
+
+				ul { margin: 0; }
+			}
+		}
+
+		input[type="text"], input[type="tel"], input[type="email"], input[type="number"], input[type="password"], textarea, select { border-color: white; font: 400 italic pem( $stTextContext ) $roboto; }
+
+		input[type="text"], input[type="tel"], input[type="email"], input[type="number"], input[type="password"], textarea {
+			padding: pem( 10, $stTextContext ) pem( 17, $stTextContext );
+
+			&:hover, &:focus, &:active { padding: pem( 9, $stTextContext ) pem( 16, $stTextContext ); }
+		}
+
+		select { border-color: white; padding: pem( 10, $stTextContext ) pem( 39, $stTextContext ) pem( 10, $stTextContext ) pem( 17, $stTextContext ); }
+	}
+
+	p.required-fields { font: 300 pem( $stTextContext )/1.385 $roboto; margin: 0 0 pem( 21, $stTextContext ); }
+
+	legend {
+
+		&.title1 {
+			color: $green; font: 300 pem( $xxltTextContext )/1.2 $roboto; margin: 0 0 pem( 20, $xxltTextContext );
+
+			span.step-info { color: black; display: block; font: 400 pem( $msTextContext, $xxltTextContext )/1.643 $roboto; }
+		}
+
+		&.title2 { color: black; font: 300 pem( $xlsTextContext )/1.2 $roboto; margin: 0 0 pem( 18, $xlsTextContext ); }
+	}
+
+	ul {
+		list-style: none;
+
+		> li {
+			@extend .clearfix;
+			font-size: pem( $browserContext ); margin-top: pem( 19 ); padding: 0;
+
+			&:first-child { margin-top: 0; }
+
+			&:before { display: none; }
+		}
+	}
+
+	label {
+		display: block; font: normal 400 pem( $sTextContext )/1.385 $roboto; margin: 0 0 pem( 6, $sTextContext ); text-transform: uppercase;
+
+		&.large { font: normal 400 pem( $lTextContext )/1 $roboto; margin: 0 0 pem( 10, $lTextContext ); }
+	}
+
+	input[type="checkbox"], input[type="radio"] {
+		float: left; margin: pem( 3 ) 0 0;
+
+		& + label { float: left; font: normal 300 pem( $stTextContext )/1.385 $roboto; margin: 0 0 0 pem( -$checkboxRadioSize - 1, $stTextContext ); padding-left: pem( $checkboxRadioSize + $checkboxRadioMargin, $stTextContext ); text-transform: none; width: 100%; }
+	}
+
+	input[type="text"], input[type="tel"], input[type="email"], input[type="number"], input[type="password"], textarea, select { display: block; font: 400 pem( $stTextContext ) $roboto; width: 100%; }
+
+	input[type="text"], input[type="tel"], input[type="email"], input[type="number"], input[type="password"], textarea {
+		@include single-transition( border-color, $transitionDuration );
+		border: 1px solid $borderGrey; padding: pem( 3, $stTextContext ) pem( 9, $stTextContext );
+
+		&:hover, &:focus, &:active { border: 2px solid $green; padding: pem( 2, $stTextContext ) pem( 8, $stTextContext ); }
+	}
+
+	input[type="file"] { font: normal 300 pem( $stTextContext ) $roboto; }
+
+	select {
+		@include patched-inline-image( $selectArrowPath, no-repeat, right center, $stTextContext ); @include appearance( none ); @include border-radius( 0 ); @include single-transition( border-color, $transitionDuration );
+		background-color: white; border: 1px solid $borderGrey; color: $placeholderGrey; padding: pem( 3, $stTextContext ) pem( 39, $stTextContext ) pem( 3, $stTextContext ) pem( 9, $stTextContext );
+
+		&:hover, &:focus, &:active { border: 1px solid $green; }
+
+		.lt-ie9 & { padding-bottom: pem( 2, $stTextContext ); padding-top: pem( 2, $stTextContext ); }
+
+		.lt-ie10 & { background-image: none; padding-right: pem( 9, $stTextContext ); }
+	}
+
+	span.extra-info { display: block; font: italic 300 pem( $stTextContext )/1 $roboto; margin: pem( 3, $stTextContext ) 0 0; }
+
+	.step-container {
+		border: 1px solid $green;  padding: pem( 15 ) pem( 20 ) 0; margin: pem( 10 ) 0 pem( 30 );
+
+		fieldset.item-container { border-color: $lightBorderGrey; }
+	}
+
+	fieldset {
+		margin: 0 0 pem( 24 );
+
+		&.form-confirm { margin-top: pem( 32 ); }
+
+		&.item-container {
+			$branchLegendPadding: 8;
+			border: 1px solid $green; padding: pem( 24 );
+
+			.title2 { margin: 0 0 0 pem( -$branchLegendPadding, $xxltTextContext ); padding: 0 pem( $branchLegendPadding, $xxltTextContext ); }
+
+			.title2 {
+				margin: 0 0 0 pem( -$branchLegendPadding, $xlsTextContext ); padding: 0 pem( $branchLegendPadding, $xlsTextContext );
+
+				.lt-ie9 & { margin-bottom: pem( 24, $xlsTextContext ); }
+
+			}
+		}
+
+		legend + ul, legend + .ng-hide + ul { margin: 0; }
+
+		table { margin: 0; }
+
+		ul {
+			margin: pem( 36 ) 0 0;
+
+			&:first-child { margin: 0; }
+
+			&.two-col { @extend .clearfix; }
+
+			ul { margin: 0; }
+		}
+
+		dt {
+			margin-top: pem( 6 );
+
+			&:first-child { margin-top: 0; }
+
+			input[type="checkbox"] + label { font-weight: 400; }
+		}
+
+		dd { padding-left: pem( 20 ); }
+	}
+
+	.step-navigation {
+		margin: pem( 24 ) 0 0;
+
+		ul {
+			@extend .clearfix;
+			margin: 0;
+		}
+	}
+
+	.required {
+
+		label {
+
+			&:after { content: "*"; }
+		}
+	}
+
+	.validation-error {
+
+		> div {
+			font: 400 italic pem( $stTextContext ) $roboto; margin: 0 0 pem( 24, $stTextContext ); padding: pem( 8, $stTextContext );
+
+			&.success, &.alert-success { border: 1px solid $green; }
+
+			&.error, &.alert-error { border: 1px solid $red; color: $red; }
+
+			ul {
+				margin: 0;
+
+				li {
+					margin: pem( 12, $stTextContext ) 0 0;
+
+					&:first-child { margin: 0; }
+				}
+			}
+		}
+	}
+}
+
+.header-search {
+	float: right; margin-top: pem( 4 );
+
+	form.search {
+
+		fieldset {
+			position: relative;
+
+			input[type="text"] {
+				border: 1px solid $headerLightGrey; color: $green; font: 400 italic pem( $stTextContext ) $roboto; padding: pem( 10, $stTextContext ) pem( 48, $stTextContext ) pem( 10, $stTextContext ) pem( 14, $stTextContext ); width: 100%;
+
+				&:hover, &:focus, &:active { border: 2px solid $green;  padding: pem( 9, $stTextContext ) pem( 47, $stTextContext ) pem( 9, $stTextContext ) pem( 13, $stTextContext ); }
+			}
+
+			span.btn-search {
+				font-size: pem( $ltTextContext ); height: pem( 19, $ltTextContext ); position: absolute; right: pem( 16, $ltTextContext ); top: pem( 10, $ltTextContext ); width: pem( 21, $ltTextContext );
+
+				input[type="submit"] {
+					display: block; height: 100%; outline: none; position: absolute; text-indent: -99999999em; top: 0; width: 100%;
+
+					&:hover, &:focus, &:active {
+
+						& + span.icon-search { color: $green; }
+					}
+
+					& + span.icon-search {
+						@include transition-property( color ); @include transition-duration( 0.25s );
+						color: $searchIconGrey;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.form {
+
+	.step-navigation {
+
+		ul {
+
+			li {
+				margin: pem( 18 ) 0 0;
+
+				&:first-child { margin: 0; }
+			}
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.form {
+
+		fieldset {
+
+			ul {
+
+				&.two-col {
+
+					li {
+						float: left; margin-right: 6%; width: 47%;
+
+						.lt-ie9 & {
+							width: 44%;
+
+							&:first-child { margin-top: pem( 18 ); }
+						}
+
+						&:nth-child( even ) { margin-right: 0; }
+
+						&:nth-child( 2 ) { margin-top: 0; }
+					}
+				}
+			}
+		}
+
+		.step-navigation {
+			margin: pem( 24 ) 0 0;
+
+			ul {
+
+				li {
+					margin: 0; width: 50%;
+
+					&.left { float: left; }
+
+					&.right { float: right; text-align: right; }
+				}
+			}
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.plancher_change { display: none; };
+
+	.form {
+		display: none;
+
+		fieldset.item-container { padding: pem( 12 ) pem( 12 ) 0; }
+
+		legend.title2 { background-color: white !important; }
+
+		input[type="checkbox"], input[type="radio"] {
+
+			& + label { margin-right: pem( 20 ); width: auto; }
+		}
+
+		.btn_radio { float: left; }
+
+		fieldset {
+			page-break-inside: avoid;
+
+			ul, legend + ul, legend + .ng-hide + ul {
+				margin-left: pem( -12 ); margin-right: pem( -12 );
+
+				&:first-child { margin-left: pem( -12 ); margin-right: pem( -12 ); }
+
+				>li { float: left; margin: 0; padding: pem( 12 ); width: 50%; }
+			}
+		}
+	}
+}

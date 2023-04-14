@@ -1,0 +1,192 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+    .ir {
+        background-color: transparent; background-repeat: no-repeat; border: 0; direction: ltr; display: block; overflow: hidden; text-align: left; text-indent: -999em;
+
+        br { display: none; }
+    }
+
+    .hidden { display: none !important; visibility: hidden; }
+
+    .visuallyhidden {
+        border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px;
+
+        &.focusable:active, &.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+    }
+    @mixin undo-visuallyhidden() { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+    .invisible { visibility: hidden; }
+
+    .clearfix {
+        &:before, &:after { content: ""; display: table; }
+        &:after { clear: both; }
+    }
+
+    .focused:focus {
+        outline: #ccc dotted 1px;
+
+        &.no-focus, &.no-focus-click { outline: none !important; }
+    }
+
+    a, input, button, textarea, *[tabindex="0"], *[tabindex="-1"] {
+        &.hover:focus { outline: none !important; }
+    }
+
+    .container { margin: 0 auto; max-width: 100%; width: pem( $layoutWidth ); }
+
+    .jump {
+        $context: 11;
+        @extend .visuallyhidden, .focusable;
+        background-color: #000; color: #fff !important; font-size: pem( $context ) !important; line-height: pem( 25, $context ); padding: 0 pem( 5, $context ); text-decoration: none !important; text-transform: uppercase;
+
+        &:active, &:focus { position: absolute; }
+    }
+
+    .avoider {
+        @extend .jump;
+
+        &:active, &:focus { position: static; }
+    }
+
+    .browsehappy {
+        background-color: red; color: #fff; font-size: pem( $sTextContext ); padding: pem( 5, $sTextContext ); text-align: center; text-transform: uppercase;
+
+        a { color: #fff; text-decoration: underline; }
+    }
+
+    .big-tagline {
+    	display: inline-block; height: 100%;
+
+    	&:after { content: ""; display: inline-block; height: 100%; vertical-align: middle; }
+
+		p {
+			background-color: $taglineGreen; color: white; display: inline-block; vertical-align: middle;
+
+			.rgba & { background-color: rgba( $taglineGreen, 0.9 ); }
+		}
+    }
+
+    .wrapper-outer {
+    	overflow: hidden;
+
+        .no-csstransforms3d.no-csstransitions & { position: relative; }
+    }
+
+    .wrapper-inner {
+        @include single-transition( transform, 0.25s, ease-in-out, 0 ); @include transform( translate3d( 0, 0, 0 ) );
+        -webkit-backface-visibility: hidden;
+
+        &.mobile-menu-open { @include transform( translate3d( pem( -$mobileNavWidth ), 0, 0 ) ); }
+
+        .no-csstransforms3d.no-csstransitions & {
+            &.mobile-menu-open { right: pem( $mobileNavWidth ); position: relative; }
+        }
+    }
+
+    .grey-container {
+    	@include patched-inline-image( '/common/bkg-wood-tile-dark.jpg', repeat, bottom center, $browserContext, false ); @include box-shadow( black 0 200px 300px -150px inset );
+		color: white;
+    }
+
+    .light-wood-container { @include patched-inline-image( '/common/bkg-wood-tile-light.jpg', repeat, bottom center, $browserContext, false ); }
+
+    .light-grey-container { background-color: $headerLightGrey; }
+
+    .logo-print { display: none; }
+
+    .partners-right {
+        margin-top: pem( 30 );
+
+        .wrapper-slideshow { position: relative; }
+
+        .partners-container {
+            display: inline-block !important; padding: 0 pem( 25 ); text-align: center; width: 100%;
+
+            .partners-cell {
+            	display: inline-block; padding: pem( 3 ); vertical-align: middle; width: 46%;
+
+            	a { display: block; }
+
+            	img { height: auto; max-width: 100%; }
+            }
+
+            > a {
+                float: left; height: pem( 60 ); width: 50%;
+
+                img { height: auto; max-height: 100%; max-width: 100%; width: auto; }
+
+                &:nth-child( 1 ) { padding-bottom: pem( 2.5 ); padding-right: pem( 2.5 ); }
+                &:nth-child( 2 ) { padding-bottom: pem( 2.5 ); padding-left: pem( 2.5 ); }
+                &:nth-child( 3 ) { padding-top: pem( 2.5 ); padding-right: pem( 2.5 ); }
+                &:nth-child( 4 ) { padding-left: pem( 2.5 ); padding-top: pem( 2.5 ); }
+            }
+        }
+        .partners-slider { z-index: 1; }
+        .wrapper-buttons-slideshow {
+            .partners-next {
+                @include translateY( -50% );
+                @include patched-inline-image( '/common/icon-slideshow-next.png', no-repeat, center center );
+                cursor: pointer; padding: pem( 10 ); position: absolute; right: 0; text-indent: -999em; top: 50%; z-index: 100;
+            }
+            .partners-prev {
+                @include translateY( -50% );
+                @include patched-inline-image( '/common/icon-slideshow-prev.png', no-repeat, center center );
+                cursor: pointer; left: 0; padding: pem( 10 ); position: absolute; text-indent: -999em; top: 50%; z-index: 100;
+            }
+        }
+
+    }
+
+    .no-margin-bottom { margin-bottom: 0!important; }
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.container { padding: 0 pem( $containerPaddingRL * 2 ); width: pem( 480 ); }
+
+.no-mobile { display: none; }
+
+.big-tagline {
+
+	p { font: 300 pem( $lsTextContext )/1.353 $roboto; max-width: pem( 225, $lsTextContext ); padding: pem( 15, $lsTextContext ) pem( 12, $lsTextContext ); }
+}
+
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.container { padding: 0 pem( $containerPaddingRL ); width: pem( 768 ); }
+
+	.mobile-only { display: none; }
+
+	.no-mobile { display: inherit; }
+
+	.big-tagline {
+
+		p { font: 300 pem( $xxlTextContext )/1.214 $roboto; max-width: pem( 375, $xxlTextContext ); padding: pem( 36, $xxlTextContext ) pem( 28, $xxlTextContext ); }
+	}
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min( 60em ) {
+
+	.container { width: pem( $layoutWidth ); }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+
+@media print {
+
+    .container { margin: 0; padding: 0; width: 100%; }
+
+    .logo-print { display: block; }
+}

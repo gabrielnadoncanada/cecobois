@@ -1,0 +1,6 @@
+/* ==|== titles ============================================================= */
+@mixin heading1( $color: $green ) { color: $color; font: 300 pem( $xxltTextContext )/1.2 $roboto; margin: 0 0 pem( 33, $xxltTextContext ); }
+@mixin heading2( $color: black ) { color: $color; font: 300 pem( $xlsTextContext )/1.2 $roboto; margin: 0 0 pem( 18, $xlsTextContext ); }
+@mixin heading3( $color: $green ) { color: $color; font: 400 pem( $mtTextContext )/1.25 $roboto; margin: 0 0 pem( 8, $mtTextContext ); }
+@mixin heading4( $color: black ) { color: $color; font: 400 pem( $msTextContext )/1.643 $roboto; margin: 0 0 pem( 4, $msTextContext ); }
+/* ========================================================================== */

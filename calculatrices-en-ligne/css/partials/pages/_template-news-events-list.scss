@@ -1,0 +1,70 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.news-list {
+	 padding: pem( 14 ) 0 pem( 45 );
+
+	 &.empty {
+	 	padding: pem( 45 ) 0;
+
+	 	p { font: 300 pem( $xlsTextContext )/1.2 $roboto; }
+	 }
+
+	ul {
+		list-style: none;
+
+		li {
+			@extend .text;
+			border-bottom: 1px solid $borderGrey; display: table; padding: pem( 17 ) 0 pem( 22 ); width: 100%;
+
+			&.with-image {
+
+				div.news-content { float: right; padding-left: pem( 180 ); margin-left: pem( -180 ); width: 100%; }
+			}
+
+			h3 {
+				color: black; font: 300 pem( $xlsTextContext )/1.2 $roboto; margin: pem( 10, $xlsTextContext ) 0;
+
+				a {
+					color: black;
+
+					&:hover, &:focus, &:active { color: $green; }
+				}
+			}
+
+			p { margin: 0; }
+
+			div.news-content { display: table; }
+
+			div.news-image {
+				float: left; max-width: pem( 140 );
+
+				img { height: auto; max-width: 100%; }
+			}
+
+			div.content-info { display: table-header-group; }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.news-list { padding: pem( 14 ) 0 pem( 45 ); }
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.news-list {
+		padding: 0;
+
+		ul {
+
+			li { width: 100%; }
+		}
+	}
+}

@@ -1,0 +1,22 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.contact-form {
+	padding-bottom: pem( 48 );
+
+	h2 {
+		$contactHeadingImagePath: '/common/icon-email-large.png';
+		@include patched-inline-image( $contactHeadingImagePath, no-repeat, right center, $xxltTextContext );
+		color: $green; display: inline-block; font: 300 pem( $xxltTextContext )/1.2 $roboto; margin: 0 0 pem( 24, $xxltTextContext ); padding-right: pem( remove-unit( image-width( $contactHeadingImagePath ) ) + 18, $xxltTextContext );
+	}
+
+	ul { margin: 0 0 pem( 24 ); }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+	.contact-right { display: none; }
+}

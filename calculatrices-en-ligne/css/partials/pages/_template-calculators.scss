@@ -1,0 +1,165 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.calculator-print { padding: pem( 24 ) 0; clear:both; }
+
+.calculators-container {
+
+	&.cecobois-calculators {
+
+		ul.calculator-list {
+
+			li {
+
+				a {
+					@include transition-property( color );
+					background-color: transparent; border: none; border-bottom: 1px solid $mediumBorderGrey; color: white;
+
+			        &:hover, &:focus, &:active { background-color: transparent; border-color: $mediumBorderGrey; color: $taglineGreen; }
+				}
+			}
+		}
+	}
+
+	.calculator-app {
+
+		p {
+			color: $taglineGreen; font: 300 pem( $xlsTextContext )/1.4 $roboto; margin: pem( 18, $xlsTextContext ) 0 0;
+
+			&:first-child { margin: 0; }
+
+			a.app-store-link {
+				@include bounded-inline-image( '/calculators/img-app-store-link-fr.png', $xlsTextContext );
+				display: inline-block;
+
+				&.en {
+					@include bounded-inline-image( '/calculators/img-app-store-link-en.png', $xlsTextContext );
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+.calculator-terms {
+	border: 1px solid $green;
+
+	> div { max-width: pem( 700 ); padding: pem( 20 ); }
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.calculators-container {
+	margin: pem( 40 ) 0;
+
+	&.cecobois-calculators {
+		margin: pem( 30 ) 0 0;
+
+		ul.calculator-list {
+
+			li {
+				margin: 0;
+
+				&:first-child { border-top: 1px solid $mediumBorderGrey; }
+			}
+		}
+	}
+
+	.calculator-app {
+		@include patched-inline-image( $calculatorAppSmallPath, no-repeat, center bottom, $browserContext, false );
+		margin: pem( 55 ) 0 0; padding: 0 0 pem( remove-unit( image-height( $calculatorAppSmallPath ) ) + 30 );
+	}
+}
+
+.calculator-terms { margin: pem( 24 ) 0 0; }
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+
+@include respond-min( 48em ) {
+
+	.calculators-container {
+		margin: pem( 60 ) 0;
+
+		&.cecobois-calculators {
+			margin: pem( 50 ) 0 0;
+
+			ul.calculator-list {
+
+				li {
+					margin: 0 0 0 5%; width: 30%;
+
+					.lt-ie9 & {
+						margin: 0 5% 0 0%; width: 28%;
+
+						&:first-child { margin: 0 5% 0 0%; }
+					}
+
+					&:first-child { border-top: none; margin: 0 0 0 5%; }
+
+					&:nth-child( 3n + 1 ) { margin: 0; }
+
+					&:nth-child( -n + 3 ) {
+
+						a { border-top: 1px solid $mediumBorderGrey; }
+					}
+				}
+			}
+		}
+
+		.calculator-app {
+			@include patched-inline-image( $calculatorAppMediumPath, no-repeat, pem( 25 ) bottom, $browserContext, false );
+			margin: pem( 55 ) 0 0; min-height: pem( remove-unit( image-height( $calculatorAppMediumPath ) ) ); padding: 0 0 pem( 20 ) 70%; text-align: left;
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+
+@include respond-min( 60em ) {
+
+	.calculators-container {
+
+		.calculator-app {
+			@include patched-inline-image( $calculatorAppLargePath, no-repeat, pem( 45 ) bottom, $browserContext, false );
+			min-height: pem( remove-unit( image-height( $calculatorAppLargePath ) ) ); padding-top: pem( 17 );
+		}
+	}
+}
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.calculator-print { display: none; }
+
+	.calculators-container {
+
+		.calculator-app p a.app-store-link { display: none; }
+
+		&.cecobois-calculators ul.calculator-list {
+
+			li {
+				margin: pem( 6 ) 0 0;
+
+				&:first-child { border-top: none; }
+
+				a {
+					border-bottom: none; display: block; height: auto; white-space: normal;
+				}
+			}
+		}
+
+		.calculator-app {
+			margin: pem( 20 ) 0 0; padding: 0;
+
+			p { font: 500 pem( $stTextContext )/1.385 $roboto; margin: 0 0 pem( 21, $stTextContext ); }
+		}
+	}
+}

@@ -1,0 +1,113 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+a, button, div.btn-success, input[type="submit"], input[type="reset"], input[type="button"] {
+
+    &.btn {
+        @include transition-property(background-color, border-color); @include transition-duration($transitionDuration);
+        background-color: $taglineGreen; border: 1px solid $borderGreen; color: white; display: inline-block; font: 400 pem( $msTextContext )/1 $roboto; padding: pem(12, $msTextContext) pem(17, $msTextContext);
+
+        &.large {
+            @extend .icon-round-arrow-right;
+            background-color: $taglineGreen; border-color: $taglineGreen; display: block; font: 400 pem( $xltTextContext )/1.167 $roboto; padding: pem(29, $xltTextContext) pem(50, $xltTextContext) pem(26, $xltTextContext) pem(22, $xltTextContext); position: relative; text-transform: uppercase;
+
+            &:before {
+                color: white; font-family: $icomoon; font-size: pem($ltTextContext, $xltTextContext); margin-top: pem($ltTextContext * 1.167 / -2, $ltTextContext); position: absolute; top: 50%; right: pem(24, $ltTextContext);
+
+                .lt-ie9 & { font-size: pem($ltTextContext); margin-top: pem($ltTextContext * 1.167 / -2); right: pem(24); }
+            }
+        }
+
+        &.red {
+            background-color: $red; border-color: $darkRed;
+
+            &:hover, &:focus, &:active { background-color: black; border-color: black; }
+        }
+
+        .boxshadow & { @include box-shadow(white -4px 4px 4px -4px inset); }
+
+        &:hover, &:focus, &:active { background-color: black; border-color: black; color: white; }
+    }
+
+    &.btn-prev, &.btn-next, &.btn-print, &.btn-file, &.btn-delete {
+        color: black; font: 400 pem( $stTextContext )/1.538 $roboto; outline: none; text-transform: uppercase;
+
+        &:before, &:after {
+            display: inline-block; font: pem( $ltTextContext, $stTextContext )/1 $icomoon; vertical-align: middle;
+
+            .lt-ie9 & { font: pem( $ltTextContext )/1 $icomoon; }
+        }
+
+        &:before {
+            margin: 0 pem(14, $ltTextContext) 0 0;
+
+            .ltie9 & { margin: 0 pem(14) 0 0; }
+        }
+
+        &:after {
+            margin: 0 0 0 pem(14, $ltTextContext);
+
+            .lt-ie9 { margin: 0 0 0 pem(14); }
+        }
+
+        &:hover, &:focus, &:active { color: $green; }
+    }
+
+    &.btn-prev { @extend .icon-round-arrow-left; }
+
+    &.btn-next {
+
+        &:after { content: "\e60d"; }
+    }
+
+    &.btn-delete {
+        @extend .icon-close;
+
+        &:before {
+            color: $red; font: pem( $msTextContext, $stTextContext )/1 $icomoon; margin: 0 pem(8, $msTextContext) 0 pem(2, $msTextContext);
+
+            .lt-ie9 & { font: pem( $msTextContext )/1 $icomoon; margin: 0 pem(8) 0 pem(2); }
+        }
+    }
+
+    &.btn-prev, &.btn-next {
+
+        &:before, &:after { color: $taglineGreen; }
+    }
+
+    &.btn-print { @extend .icon-print; }
+
+    &.btn-file {
+        @extend .icon-file;
+
+        &:before {
+            font: pem( $xxlTextContext, $stTextContext )/1 $icomoon; margin: 0 pem(14, $xxlTextContext) 0 0;
+
+            .lt-ie9 & { font: pem( $xxlTextContext )/1 $icomoon; margin: 0 pem(14) 0 0; }
+        }
+    }
+}
+
+a.btn-archive { color: white; }
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min(48em) {
+
+    a, button, input[type="submit"], input[type="reset"] {
+
+        &.float-right { float: right; }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+    a, button, input[type="submit"], input[type="reset"] {
+
+        &.btn, &.btn.large, &.btn-print, &.btn-file { display: none; }
+    }
+}

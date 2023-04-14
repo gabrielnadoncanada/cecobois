@@ -1,0 +1,179 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+.clear{
+	clear:both;
+}
+#wrapper{
+	margin-top:15px;
+	position:relative;
+	width:558px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#page{
+	width: 558px;
+	float: left;
+	background-image: url(../img/bg_page.png);
+	background-repeat: repeat-x;
+	background-position: 0px 0px;
+}
+#logo_sys{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+a img{
+	border-style:none;
+}
+#calc{
+	margin-bottom:30px;
+}
+#all_fieldset{
+	float:left;
+}
+#calc fieldset{
+	border: 1px solid #c1c9c9;
+	margin-bottom: 15px;
+	padding: 10px;
+	width:260px;
+}
+#calc legend{
+	color:#000;
+}
+.ast{
+	color:#D1012B;
+}
+div .ast{
+	margin-bottom:5px;
+}
+td.error{
+	color:#D1012B;
+	font-weight:bold;
+}
+
+td.key{
+	width: 160px;
+	color:#67757B;
+}
+.inputbox{
+	background-color:#F0F0F0;
+	border-color:#E6E6E6;
+	border-width:1px;
+	width:140px;
+}
+#schema{
+	float:left;
+	padding-left:15px;
+}
+#note,
+#avertissement{
+	margin-top:10px;
+}
+
+h1{
+	margin-top:10px;
+	font-size:22px;
+}
+#message_form{
+	border:1px solid #D93344;
+	border-left-style:none;
+	border-right-style:none;
+	background-color:#FFDDDE;
+	padding:5px;
+	color:#000;
+	margin-bottom:10px;
+}
+ol li{
+	padding-bottom:5px;
+	margin-left:20px;
+}
+#absolute{
+	position:absolute;
+	top:0px;
+	left:0px;
+	botto:0px;
+	right:0px;
+	width:558px;
+	color:#000000;
+	height:700px;
+	background-image:url(../img/transparent.png);
+	background-repeat:repeat;
+}
+#box_absolute{
+	background-color:#FFFFFF;
+	border:2px solid #E6E6E6;
+	margin-left:50px;
+	margin-right:50px;
+	margin-bottom:20px;
+	width:458px;
+}
+#absolute h1{
+	background-color:#000000;
+	color:#FFF;
+	border-bottom:2px solid #75BA1E;
+	padding:10px;
+}
+#absolute #content{
+	padding:30px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+#content ol{
+	margin-top:10px;
+	margin-bottom:5px;
+}
+#content #formulaire{
+	padding-top:15px;
+}
+.clear_height{
+	clear:both;
+	height:40px;
+}
+#result{
+	margin-top:20px;
+	width:100%;
+}
+
+#result td{
+	border-bottom:1px solid #c1c9c9;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-right:5px;
+	text-align:center;
+}
+#result td.titre{
+	text-align:left;
+}
+#result td.note{
+	text-align:left;
+	padding-left:10px;
+}
+div.buttonheading {
+	text-align:right;
+	margin: 0px;
+	padding: 0px;
+}
+
+#debug{
+	margin:10px;
+}
+#debug table{
+	float:left;
+	margin-right:20px;
+}
+#debug td{
+	font-size:12px;
+	padding:2px;
+}
+#debug td.titre{
+	font-weight:bold;
+}
+.clr{
+	clear:both;
+	height:20px;
+}

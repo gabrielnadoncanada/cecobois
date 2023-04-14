@@ -1,0 +1,67 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.content-info {
+	@extend .clearfix;
+	border-top: 1px solid $borderGrey;
+	margin: 0 0 pem( 24 ); padding: pem( 18 ) 0 0;
+
+	> div {
+
+		&.content-info-left { float: left; }
+
+		&.content-info-right { float: right; }
+
+		&.content-info-full {
+			@extend .clearfix;
+			background-color: $headerLightGrey; clear: both; margin: pem( 33 ) 0 0; padding: pem( 15 ) pem( 14 ); width: 100%;
+
+			span {
+				font: 300 pem( $stTextContext )/1.231 $roboto;
+
+				&.info-location-title { border-left: none; font-weight: 500; text-transform: uppercase; width: pem( 30, $stTextContext ); }
+
+				&.info-location { border-left: none; margin-left: pem( -30, $stTextContext ); padding-left: pem( 45, $stTextContext ); width: 100%;  }
+			}
+		}
+
+		span {
+			border-left: 1px solid $green; color: $dateGrey; float: left; font: 500 pem( $sTextContext )/1 $roboto; margin-left: pem( 10, $sTextContext ); padding-left: pem( 10, $sTextContext );
+
+			&:first-child { border-left: none; margin-left: 0; padding-left: 0; }
+
+			&.info-city { color: $green; }
+
+			&.info-category {
+				color: $green; font: 500 pem( $stTextContext )/1 $roboto; margin-left: 0; padding-left: 0; text-transform: uppercase;
+
+				&:before { background-color: $green; margin: 0 pem( 9, $stTextContext ) pem( 2, $stTextContext ) 0; content: ""; display: inline-block; height: pem( 6, $stTextContext ); width: pem( 12, $stTextContext ); }
+			}
+		}
+	}
+}
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.content-info {
+
+		> div {
+
+			&.content-info-left {}
+
+			&.content-info-right {
+				float: left;
+
+				span:first-child { border-left: 1px solid $green; margin-left: pem( 10, $sTextContext ); padding-left: pem( 10, $sTextContext ); }
+			}
+
+			&.content-info-full {
+				padding: 0;
+
+				span.info-location { margin-left: pem( 10, $stTextContext ); padding-left: pem( 10, $stTextContext ); width: auto; }
+			}
+		}
+	}
+}

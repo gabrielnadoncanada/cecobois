@@ -1,0 +1,527 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+header.main {
+    @include transform(translate3d(0, 0, 0));
+    background-color: white;
+
+    .header-search {
+        @include transform(translate3d(0, 0, 0));
+        overflow: hidden;
+    }
+
+    .header-middle { @extend .clearfix, .container; }
+
+    .header-top-container {
+        @extend .clearfix, .container;
+
+        ul { @extend .clearfix; }
+    }
+
+    .header-middle, .header-bottom {
+
+        ul { @extend .clearfix, .container; }
+    }
+
+    .cecobois-logo, .woodworks-logo { float: left; }
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+header.main {
+
+    .header-middle {
+        padding-bottom: pem(16); padding-top: pem(8);
+
+        .woodworks & { padding-top: pem(16); }
+    }
+
+    nav.main { padding-top: pem(92); position: absolute; right: pem(-$mobileNavWidth); top: 0; width: pem($mobileNavWidth); }
+
+    .header-top-container { padding: 0; }
+
+    .header-top-container, .header-bottom {
+
+        ul {
+            padding: 0;
+
+            &.green-menu {
+                background-color: $taglineGreen; padding: pem(17) 0;
+
+                li {
+                    border-top: none;
+
+                    a, button {
+                        @include single-transition(background-color, $transitionDuration);
+                        background-color: $taglineGreen; padding: pem(9) pem(20);
+
+                        &:hover, &:focus, &:active { background-color: black; color: white; }
+
+                        span { font: 400 pem( $msTextContext )/1 $roboto; }
+                    }
+                }
+            }
+
+            li {
+                border-top: 1px solid #404040;
+
+                &.open {
+
+                    > a, > button {
+
+                        &.hasSubmenu { @include patched-inline-image('/common/icon-submenu-open.png', no-repeat, right center); }
+                    }
+
+                    > ul { height: auto; }
+                }
+
+                a, button {
+                    color: white; display: block; outline: none; padding: pem(13) pem(10) pem(13) pem(20); text-align: left; width: 100%;
+
+                    &.login {
+                        @include patched-inline-image('/common/icon-btn-login.png', no-repeat, right center);
+                        padding-right: pem(44) !important;
+                    }
+
+                    &.logout {
+                        font-size: pem($xsTextContext); padding: pem(15, $xsTextContext); position: absolute; right: pem(5, $xsTextContext); top: 0; width: auto;
+
+                        &:before { content: "\e606"; }
+                    }
+
+                    &.language {
+                        padding: 0 pem(20);
+
+                        span { font-size: pem($stTextContext); padding: pem(13, $stTextContext) 0; }
+                    }
+
+                    &.user-name, &.login {
+                        padding: 0 pem(45) 0 0; text-align: right;
+
+                        span { overflow: hidden; font-size: pem($stTextContext); padding: pem(13, $stTextContext) 0; text-overflow: ellipsis; white-space: nowrap; width: 100%; }
+                    }
+
+                    &:hover, &:focus, &:active { color: $green; }
+
+                    &.hasSubmenu {
+                        @include patched-inline-image('/common/icon-submenu-closed.png', no-repeat, right center);
+                        padding-right: pem(40);
+                    }
+
+                    span { display: block; font: 300 pem( $mTextContext )/1 $roboto; }
+                }
+
+                > ul { height: 0; overflow: hidden; }
+            }
+        }
+
+        > ul {
+
+            > li {
+
+                > ul {
+
+                    > li {
+
+                        a, button {
+
+                            span { font: 300 pem( $msTextContext )/1 $roboto; }
+                        }
+
+                        > a, button {
+                            color: $green; padding-left: pem(30);
+
+                            span { font-weight: 500; }
+                        }
+
+                        > ul {
+
+                            > li {
+
+                                a, button { padding-left: pem(40); }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header-top-container {
+
+        > ul {
+
+            > li {
+
+                &.language-selector, &.account, &.login { position: absolute; top: 0; }
+
+                &.language-selector { left: 0; width: 35%; }
+
+                &.account, &.login { right: 0; width: 65%; }
+            }
+        }
+    }
+
+    .cecobois-logo {
+        @include bounded-inline-image('/common/logo-cecobois-mobile.png');
+        &.cecobois-woodworks { width: pem(80); margin-left: pem(12); }
+    }
+
+    .woodworks-logo { @include bounded-inline-image('/common/logo-woodworks-mobile.png'); }
+
+    .header-search { padding: 0 pem(20); position: absolute; right: pem(-$mobileNavWidth); top: pem(38); width: pem($mobileNavWidth); }
+
+    .menu-toggle {
+        float: right; margin-top: pem(24); outline: none;
+
+        .woodworks & { margin-top: pem(6); }
+
+        &:before { float: right; font-size: pem($mTextContext); margin: 0 0 0 pem(10, $mTextContext); }
+
+        span { font: 300 pem( $sTextContext )/1.25 $roboto; text-transform: uppercase; vertical-align: top; }
+    }
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min(48em) {
+
+    header.main {
+        padding-top: pem($headerTopHeight); position: relative; z-index: 1001;
+
+        .woodworks & { padding-top: 0; }
+
+        .header-middle {
+            padding-bottom: pem(38); padding-top: pem(28);
+
+            .woodworks & { padding-bottom: pem(25); padding-top: pem(34); }
+        }
+
+        .cecobois-logo {
+            @include bounded-inline-image('/common/logo-cecobois.png');
+
+            &.cecobois-woodworks {
+                @include bounded-inline-image('/common/logo-cecobois-mobile.png');
+                margin-left: pem(35); margin-top: pem(14);
+            }
+        }
+
+        .woodworks-logo { @include bounded-inline-image('/common/logo-woodworks.png'); }
+
+        .header-search { padding: 0; position: relative; right: auto; top: auto; }
+
+        nav.main { display: block; min-height: 0 !important; padding-top: 0; position: static; top: auto; right: auto; width: auto; }
+
+        .header-top-container {
+            padding: 0 pem($containerPaddingRL);
+
+            ul {
+                float: left;
+
+                &.utilitary-links { float: right; }
+            }
+        }
+
+        .header-top-container, .header-bottom {
+
+            > ul {
+                padding: 0 pem($containerPaddingRL);
+
+                > li {
+                    border-top: none; float: left;
+
+                    &:first-child { margin: 0; }
+
+                    a, button {
+                        color: inherit; display: table; padding: 0;
+
+                        &.user-name {
+                            display: inline-block;
+
+                            span { display: inline-block; }
+                        }
+
+                        span { display: table-cell; vertical-align: middle; }
+                    }
+
+                    > ul {
+                        position: absolute;
+
+                        li {
+                            border-top: none;
+
+                            ul {
+
+                                li {
+
+                                    a { color: black; }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .header-top { background-color: $headerLightGrey; position: absolute; top: 0; width: 100%; }
+
+        .header-top-container {
+
+            > ul {
+                padding: 0;
+
+                > li {
+                    float: left; margin: 0 0 0 pem(24);
+
+                    &.language-selector, &.account, &.login { position: static; top: auto; }
+
+                    &.language-selector {
+                        left: auto; width: auto;
+
+                        a span { font: 300 pem( $xsTextContext )/1 $roboto; }
+                    }
+
+                    &.account, &.login { right: auto; width: auto; }
+
+                    &.open {
+
+                        a, button {
+
+                            &.hasSubmenu {
+                                background-image: none;
+
+                                .lt-ie9 & { background-image: none; }
+                            }
+                        }
+                    }
+
+                    &.green-link {
+
+                        a {
+                            @include transition-property(background-color, border-color); @include transition-duration($transitionDuration);
+                            background-color: $taglineGreen; border: 1px solid $borderGreen; color: white; padding: 0 pem(16);
+
+                            .boxshadow & { @include box-shadow($highlightGreen -4px 4px 4px -4px inset); }
+
+                            span { font-weight: 400; }
+
+                            &:hover, &:focus, &:active { background-color: black; border-color: black; color: white; }
+                        }
+                    }
+
+                    &.login, &.account {
+
+                        a span { font: 400 pem( $xsTextContext )/1 $roboto; }
+                    }
+
+                    &.account {
+                        background-color: black;
+
+                        a.user-name {
+                            color: $green; max-width: pem(100); padding: 0 0 0 pem(12); width: auto;
+
+                            span { font-weight: 500; }
+
+                            &:hover, &:focus, &:active { color: white; }
+                        }
+
+                        a.logout {
+                            color: $lightGrey; display: inline-block; font-size: pem($sTextContext); height: pem($headerTopHeight, $sTextContext); padding: pem(13, $sTextContext); position: relative; right: auto; vertical-align: middle;
+
+                            &:before { height: auto; }
+
+                            &:hover, &:focus, &:active { color: white; }
+                        }
+                    }
+
+                    a, button {
+                        color: black; height: pem($headerTopHeight);
+
+                        &.language { padding: 0; }
+
+                        &.hasSubmenu {
+                            background-image: none;
+
+                            .lt-ie9 { background-image: none; }
+                        }
+
+                        &:hover, &:focus, &:active { color: $green; }
+
+                        &:before { vertical-align: middle; }
+
+                        span { font: 300 pem( $xsTextContext )/1 $roboto; vertical-align: middle; }
+                    }
+                }
+            }
+        }
+
+        .header-bottom {
+            background-color: $black;
+
+            > ul {
+                position: relative;
+
+                > li {
+                    float: left; margin: 0 0 0 pem(35); max-width: pem(80);
+
+                    &.open {
+
+                        > ul {
+                            @include box-shadow(#000 0 5px 40px -15px);
+                            background-color: white; left: pem($containerPaddingRL); padding: pem(20) 0; position: absolute; right: pem($containerPaddingRL);
+
+                            .no-csscolumns & { border: 1px solid $borderGrey; border-top: none; }
+                        }
+
+                        a, button {
+
+                            &.hasSubmenu {
+                                background-image: none;
+
+                                .lt-ie9 & { background-image: none; }
+                            }
+                        }
+                    }
+
+                    &.long-title { max-width: pem(120); }
+
+                    &:first-child { margin: 0; }
+
+                    > a, > button {
+                        color: white; height: pem(84); position: relative;
+
+                        &.hasSubmenu {
+                            background-image: none; padding-right: 0;
+
+                            .lt-ie9 & { background-image: none; }
+                        }
+
+                        &:after {
+                            @include transition-property(width); @include transition-duration($transitionDuration);
+                            background-color: $green; bottom: 0; content: ""; left: 0; position: absolute; height: pem(6); vertical-align: bottom; width: 0;
+                        }
+
+                        &:hover, &:focus, &:active {
+                            color: $green;
+
+                            &:after { width: pem(24); }
+                        }
+
+                        > span { font: 300 pem( $msTextContext )/1.143 $roboto; }
+                    }
+
+                    > ul {
+
+                        .csscolumns & {
+                            @include column-count(3);
+
+                            > li {
+                                @include column-break(inside, avoid);
+                                margin: 0 0 pem(23);
+                            }
+                        }
+
+                        .no-csscolumns & {
+
+                            > li { display: inline-block; margin: 0 3% pem(23) 0; vertical-align: top; width: 30%; }
+                        }
+
+                        > li {
+
+                            > a, > button {
+
+                                span { font: 500 pem( $lsTextContext )/1 $roboto; }
+                            }
+
+                            > button { pointer-events: none; }
+
+                            > ul {
+                                height: auto; padding: pem(8) 0 0;
+
+                                li {
+                                    margin: pem(10) 0 0;
+
+                                    &:first-child { margin: 0; }
+
+                                    a, button {
+                                        display: block; padding-left: pem(30);
+
+                                        &:before { display: none; }
+
+                                        span { display: block; font: 400 pem( $stTextContext )/1.154 $roboto; }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min(60em) {
+
+    header.main {
+
+        .header-top-container {
+
+            > ul {
+
+                > li {
+                    margin: 0 0 0 pem(28);
+
+                    &.language-selector, &.login, &.account {
+
+                        a span { font: 400 pem( $stTextContext )/1 $roboto; }
+                    }
+
+                    &.account {
+
+                        a.user-name { max-width: pem(145); padding: 0 0 0 pem(16); }
+
+                        a.logout { padding: pem(13, $sTextContext) pem(16, $sTextContext); }
+                    }
+
+                    a {
+                        span { font: 300 pem( $stTextContext )/1 $roboto; }
+                    }
+                }
+            }
+        }
+
+        .header-bottom {
+
+            > ul {
+
+                > li {
+                    margin: 0 0 0 pem(45); max-width: pem(100);
+
+                    &.long-title { max-width: pem(155); }
+
+                    > a, > button {
+
+                        span { font: 300 pem( $lTextContext )/1.112 $roboto; }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+    header.main {
+
+        .cecobois-logo, .menu-toggle, .header-search, nav.main { display: none; }
+    }
+}

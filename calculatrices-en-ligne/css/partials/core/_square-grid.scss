@@ -1,0 +1,187 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+.square-grid-container {
+	padding: pem( 5 );
+
+	.square-grid {
+		@extend .clearfix;
+
+		.brick {
+			float: left; padding: pem( 10 );
+
+			&:hover, &:focus, &:active {
+
+				.brick-info a { color: $taglineGreen; }
+			}
+
+			.brick-content { overflow: hidden; position: relative; }
+
+			img { height: auto; width: 100%; }
+
+			.brick-info {
+				@include single-transition( color, $transitionDuration );
+				bottom: 0; color: white; left: 0; padding: pem( 60 ) pem( 20 ) pem( 18 ); position: absolute; right: 0;
+
+				.cssgradients & { @include background-image( linear-gradient( rgba( 0, 0, 0, 0 ), rgba( 0, 0, 0, 0.75 ) 75% ) ); }
+
+				.brick-title { font: 600 pem( $msTextContext )/1.143 $roboto; }
+
+				p { font: 400 pem( $msTextContext )/1.385 $roboto; margin: pem( 4, $msTextContext ) 0 0; }
+
+				a {
+					color: inherit;
+
+					&:hover, &:focus, &:active { color: $taglineGreen; }
+				}
+			}
+
+			.award-badge { position: absolute; right: pem( 10 ); top: pem( 10 ); }
+		}
+	}
+}
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+.square-grid-container {
+
+	.square-grid {
+
+		.brick { width: 100%; }
+	}
+}
+
+/* ========================================================================== */
+/* ============================ LANDSCAPE MOBILE ============================ */
+/* ========================================================================== */
+@include respond-min( 30em ) {
+
+	.square-grid-container {
+
+		.square-grid {
+
+			.brick { width: 50%; }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+@include respond-min( 48em ) {
+
+	.square-grid-container {
+
+		.square-grid {
+
+			.brick { padding: pem( 10 ); width: percentage( 1/3 ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@include respond-min( 64em ) {
+
+	.square-grid-container {
+
+		.square-grid {
+
+			.brick { width: percentage( 1/4 ); }
+		}
+	}
+}
+/* ========================================================================== */
+/* ================================= MAXIMAL ================================ */
+/* ========================================================================== */
+@include respond-min( 85em ) {
+
+	.square-grid-container {
+
+		.square-grid {
+
+			.brick { width: percentage( 1/5 ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ============================ RIDICULOUSLY HUGE =========================== */
+/* ========================================================================== */
+@include respond-min( 110em ) {
+
+	.square-grid-container {
+
+		.square-grid {
+
+			.brick { width: percentage( 1/6 ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ====== CONGRATULATIONS, YOU PAID A MILLION DOLLARS FOR YOUR MONITOR ====== */
+/* ========================================================================== */
+@include respond-min( 128em ) {
+
+	.square-grid-container {
+
+		.square-grid {
+
+			.brick { width: percentage( 1/7 ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ============= ALL HAIL THE ALL-MIGHTY GOD-SCREEN OF HUGENESS ============= */
+/* ========================================================================== */
+@include respond-min( 150em ) {
+
+	.square-grid-container {
+
+		.square-grid {
+
+			.brick { width: percentage( 1/8 ); }
+		}
+	}
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
+@media print {
+
+	.square-grid-container {
+		padding: 0;
+
+		.square-grid {
+
+			.brick {
+				margin: 0 3% pem( 30 ) 0;padding: 0; width: 22%;
+
+				&.print-first { clear: both; }
+
+				&:hover, &:focus, &:active {
+
+					.brick-info a { color: $taglineGreen; }
+				}
+
+				.brick-content { display: table; }
+
+				.brick-info {
+					bottom: auto; display: table-footer-group; left: auto; padding: 0; position: static; right: auto;
+
+					.brick-title {
+						font: 600 pem( $sTextContext )/1.25 $roboto; margin: pem( 6, $sTextContext ) 0 0;
+
+						a { text-decoration: none; }
+					}
+
+					p { font: 400 pem( $xsTextContext )/1 $roboto; margin: pem( 4, $xsTextContext ) 0 0; }
+				}
+			}
+		}
+	}
+}

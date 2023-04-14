@@ -1,0 +1,639 @@
+
+#actualites > div:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: -1;
+    opacity: 0;
+}
+
+#actualites .category {
+    position: relative;
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#actualites .link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+#actualites .content .photo {
+    position: relative;
+    width: 40%;
+    height: auto;
+    padding-bottom: 50%;
+}
+
+#actualites .content {
+    position: relative;
+    width: 92%;
+    display: flex;
+    flex-direction: row;
+}
+
+#actualites > div {
+    position: relative;
+    width: 48.5%;
+    margin-right: 3%;
+    margin-bottom: 2%;
+    background: #fff;
+    display: flex;
+    cursor: pointer;
+}
+
+#actualites.list {
+    width: 100%;
+    display: flex;
+}
+
+#actualites .content .photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+#actualites .category p {
+    white-space: nowrap;
+    position: absolute;
+
+    font-size: 17px;
+    font-weight: 800;
+    color: #000;
+    transform: rotate(-90deg);
+}
+
+#actualites .category:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #F6D550;
+    transition: all 0.3s ease-in-out;
+}
+
+#actualites > div:hover .category:before {
+    height: 100%;
+}
+
+#actualites > div:hover .more {
+    background: #F6D550;
+}
+
+#actualites .more {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+    transform: translateX(50%);
+    width: 40px;
+    height: 40px;
+    background: #000;
+    border-radius: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+#actualites > div:hover .more svg {
+    transform: translate(-50%, -50%) rotate(180deg);
+    transform-origin: center;
+    fill: #000;
+}
+
+#actualites .more svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 13px;
+    height: 13px;
+    fill: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+#actualites .content > div:not(.photo) {
+    width: 60%;
+    padding: 60px 50px;
+}
+
+#actualites .content > div:not(.photo) .date {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+}
+
+#actualites .content > div:not(.photo) .date svg {
+    width: 23px;
+    height: 23px;
+    margin-right: 17px;
+    fill: #000;
+    stroke: #000;
+    stroke-width: 1px;
+}
+
+@media (max-width: 1440px) {
+    #actualites > div .category {
+        width: 12%;
+        border-right: 1px solid rgba(0, 0, 0, 0.15);
+    }
+}
+
+@media (max-width: 950px) {
+    #actualites > div .content .photo {
+        display: none;
+    }
+}
+
+#swiper-actualites {
+    padding-right: 22px;
+    padding-left: 22px;
+}
+
+@media (min-width: 768px) {
+    div#controls .btn-login span.icn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    div#controls .btn-login span.icn svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 22px;
+        height: 24px;
+        fill: #fff;
+    }
+
+    div#controls .btn-login:hover span.txt {
+        width: auto;
+        animation: controlsTextFadeIn 0.7s cubic-bezier(0.25, 0.25, 0.1, 1) both;
+    }
+    div#controls .btn-login span.icn {
+        position: relative;
+        z-index: 2;
+        width: 46px;
+        height: 46px;
+        display: block;
+        background: #69A93A;
+        border-radius: 46px;
+    }
+
+    div#controls .btn-login span.txt {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 1px;
+        z-index: 1;
+        font-size: 18px;
+        font-weight: 800;
+        color: transparent;
+        line-height: 25px;
+        background: #fff;
+        padding: 0;
+        border-radius: 44px;
+        width: 44px;
+        height: auto;
+        transition: padding .3s ease-in-out;
+    }
+
+    #controls {
+        position: absolute;
+        top: 50px;
+        right: 15px;
+        z-index: 101;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #controls .btn-login {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+}
+
+.forgetPSW {
+    font-size: 12px;
+}
+
+input:not([type="checkbox"]) {
+    font-size: 17px;
+    color: #000;
+    border: 1px solid #707070;
+    border-radius: 5px;
+    line-height: 15px;
+    padding: 10px 15px;
+}
+
+form .field label, label {
+    font-size: 13px;
+    color: #666;
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="submit"], button[type="submit"] {
+    background: #69A93A;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 0;
+    min-height: 40px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+    border: none;
+    display: block;
+    font-family: inherit;
+}
+
+
+input[type="submit"]:hover, button[type="submit"]:hover {
+    cursor: pointer;
+}
+
+.login-remember label {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.login-username, .login-password {
+    display: flex;
+    flex-direction: column;
+}
+
+
+header .wp-block-image {
+    line-height: 1;
+}
+
+
+@keyframes controlsTextFadeIn {
+    0% {
+        padding: 0;
+        color: transparent;
+    }
+    20% {
+        color: transparent;
+    }
+    30% {
+        padding: 12px 66px 12px 30px;
+    }
+    100% {
+        padding: 12px 66px 12px 30px;
+        color: black;
+    }
+}
+
+@keyframes fadingIn {
+    0% {
+        opacity: 0;
+        display: flex;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadingOut {
+    0% {
+        opacity: 1;
+        display: flex;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+.return-btn {
+    display: flex;
+    align-items: center;
+}
+
+.share-btn {
+    background-color: #69A93A;
+    border-radius: 60px 0 0 60px;
+    display: flex;
+    align-items: center;
+    padding: 35px 45px;
+    margin-block-start: 0 !important;
+}
+
+.share-btn .title {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 800;
+    margin-right: 45px;
+    line-height: 1;
+}
+
+.share-btn .btn .btn-round {
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.share-btn .btn-round svg {
+    fill: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.return-btn .btn-prev {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    border-radius: 34px;
+    background: #69A93A;
+    transition: all 0.3s ease-in-out;
+    margin-right: 15px;
+}
+
+
+.return-btn a {
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    color: #000;
+}
+
+.return-btn .btn-prev svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    fill: #fff;
+    transform: translate(-50%, -50%) rotate(180deg);
+    transform-origin: center;
+}
+
+.return-btn:hover .btn-prev {
+    background: #F6D550;
+}
+
+.btn-round:hover svg {
+    fill: #F6D550;
+}
+
+.share-articles {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0 50px 0;
+    margin: 0 0 0 175px;
+}
+
+
+@media (max-width: 1024px) {
+    .share-articles {
+        margin: 0 0 0 30px;
+    }
+
+    .share-articles {
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .share-articles .return-btn {
+        margin-bottom: 30px;
+        align-self: flex-end;
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .share-articles .share-btn {
+        border-radius: 0;
+        align-items: center;
+        padding: 20px;
+        margin: 0 20px;
+        flex-direction: column;
+        border-radius: 50px;
+    }
+
+
+    .share-articles, .share-btn .title {
+        margin: 0;
+    }
+    .share-btn .title {
+        margin-bottom: 20px;
+    }
+
+    .share-btn .title br {
+        display: none;
+    }
+    .share-btn .btn .btn-round {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+body {
+    overflow-x: hidden;
+
+}
+
+.btn-login .txt {
+    font-weight: 800;
+}
+
+.btn-login  {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.btn-login .icn {
+    line-height: 0;
+}
+
+
+form[name="calcul"] fieldset ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 1rem;
+    grid-column-gap: 2rem;
+}
+
+form[name="calcul"] fieldset ul:not(:last-child) {
+    border-bottom: 1px solid rgb(118,118,118);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+form ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+fieldset {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+form[name="calcul"] .btn_radio, form[name="calcul"] input[type="radio"] + label {
+    display: inline-block;
+}
+p.checkbox input[type="checkbox"] + label:before, input[type="radio"] + label::after {
+    content: '';
+    background: #fff;
+    margin-right: 10px;
+    float: left;
+    display: inline-block;
+    vertical-align: middle;
+    width: 19px;
+    height: 19px;
+    border: 2px solid #000;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    top: 3px;
+    position: relative;
+}
+
+p.checkbox input[type="radio"] + label:after, input[type="radio"] + label::after {
+    opacity: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #69a93a;
+    border: 3px solid #fff;
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    top: 0;
+}
+
+p.checkbox input[type="radio"]:checked + label::after, input[type="radio"]:checked + label::after {
+    background: #69A93A !important;
+}
+
+form[name="calcul"] input[type="radio"] + label {
+    margin-right: 1rem;
+}
+
+p.checkbox input[type="checkbox"]:not(#rememberme),
+p.checkbox input[type="radio"],
+input[type="radio"],
+input[type="checkbox"]:not(#rememberme) {
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+select {
+    font-size: 15px;
+    line-height: 15px;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+legend {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 25px;
+    font-weight: 700;
+    border-bottom: 1px solid black;
+}
+
+#mt-n100 {
+    z-index: 2;
+    position: relative;
+    margin-top: -100px;
+}
+
+.logged-out.btn-login {
+    position: static !important;
+}
+
+.login-username input, .login-password input {
+    margin-bottom: 0;
+}
+
+
+input[type="submit"]:hover, button[type="submit"]:hover {
+    background: #F6D550;
+}
+
+.forgetPSW a, .forgetPSW a:hover {
+    text-decoration: underline !important;
+}
+
+.wp-block-social-links {
+    transition: margin 0.3s ease-in-out
+}
+
+#register .fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+#register .fields input {
+    width: 100%;
+}
+
+#register button {
+    width: 100%;
+    margin-top: 30px;
+}
+
+@media (min-width: 768px) {
+    .formOpen {
+        margin-top: 400px !important;
+    }
+
+    #register .fields  {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+input[type="text"], select {
+    width: 100%;
+}
+

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "ng/modal",
+  "version": "0.1.0",
+  "title": "Modal",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Modal Block",
+  "supports": {
+	"html": false,
+	"color": {
+	  "text": true,
+	  "background": true,
+	  "link": true
+	}
+  },
+  "attributes": {
+	"openButtonLabel": {
+	  "type": "string",
+	  "default": "Open modal"
+	},
+	"openButtonWidth": {
+	  "type": "number"
+	},
+	"openButtonStyle": {
+	  "type": "string",
+	  "default": "fill"
+	},
+	"modalId": {
+	  "type": "string"
+	},
+	"openButtonAlignment": {
+	  "type": "string"
+	}
+  },
+  "textdomain": "ng-modal",
+  "editorScript": "file:./index.js",
+
+  "style": [
+	"wp-block-button",
+	"wp-block-buttons",
+	"file:./style-index.css"
+  ]
+}

@@ -1,0 +1,72 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+.logo-carousel {
+    background-color: white; text-align: center;
+
+    .wrapper-slideshow {
+        margin: 0 auto; max-width: pem(950); padding: 0 pem(30); position: relative; width: 100%;
+
+        .partners-cell {
+            padding: 0 pem(15); text-align: center;
+
+            img { height: auto; max-width: 100%; }
+
+            a { display: inline-block; }
+        }
+
+        .prev, .next {
+            @include transform(translateY(-50%)); @include transition-property(color); @include transition-duration($transitionDuration);
+            color: $green; font-size: pem($xlsTextContext); position: absolute; top: 50%;
+
+            &:hover, &:focus, &:active { color: $black; }
+        }
+
+        .prev { left: pem(10, $xlsTextContext); }
+
+        .next { right: pem(10, $xlsTextContext); }
+    }
+}
+
+.provincial-sponsors-logos {
+    @extend .clearfix;
+    &:before { border-top: solid 1px $borderGrey; display: inline-block; margin-bottom: pem(15); width: 100%; }
+
+    .partners-cell {
+        float: left; height: pem(40); margin-bottom: pem(60); text-align: center; width: 50%;
+
+        img { max-width: 70%; }
+    }
+}
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+.logo-carousel { padding: pem(48) 0; }
+
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+
+@include respond-min (48em) {
+
+    .logo-carousel { padding: pem(24) 0; }
+
+    .provincial-sponsors-logos {
+        .partners-cell { width: 25%; }
+    }
+}
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* ================================= MAXIMAL ================================ */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
